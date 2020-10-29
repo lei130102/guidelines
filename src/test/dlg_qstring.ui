@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>996</width>
-    <height>626</height>
+    <width>1011</width>
+    <height>557</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -137,6 +137,16 @@
         <property name="editable">
          <bool>true</bool>
         </property>
+        <item>
+         <property name="text">
+          <string>a,,b,c</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>编码</string>
+         </property>
+        </item>
        </widget>
       </item>
       <item row="1" column="0">
@@ -265,9 +275,9 @@
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>-3086</y>
-           <width>573</width>
-           <height>3651</height>
+           <y>-873</y>
+           <width>691</width>
+           <height>3235</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -542,7 +552,7 @@
              <item row="2" column="0" colspan="2">
               <widget class="QLabel" name="label_20">
                <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;QString qstring1 = &amp;quot; lots\t of\nwhitespace\r\n &amp;quot;;&lt;/p&gt;&lt;p&gt;QString result = qstring1.simplified();&lt;/p&gt;&lt;p&gt;//result == &amp;quot;lots of whitespace&amp;quot;&lt;/p&gt;&lt;p&gt;//空白字符就是QChar::isSpace()返回true的字符，包括ASCII字符：&lt;/p&gt;&lt;p&gt;//'\t'、'\n、'\v'、'\f'、'\r'和' '&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;不仅去掉字符串首尾的空白字符，中间连续的空白字符也用一个空格替换&lt;/p&gt;&lt;p&gt;QString qstring1 = &amp;quot; lots\t of\nwhitespace\r\n &amp;quot;;&lt;/p&gt;&lt;p&gt;QString result = qstring1.simplified();&lt;/p&gt;&lt;p&gt;//result == &amp;quot;lots of whitespace&amp;quot;&lt;/p&gt;&lt;p&gt;//空白字符就是QChar::isSpace()返回true的字符，包括ASCII字符：&lt;/p&gt;&lt;p&gt;//'\t'、'\n、'\v'、'\f'、'\r'和' '&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
               </widget>
              </item>
@@ -575,7 +585,7 @@
              <item row="2" column="0" colspan="2">
               <widget class="QLabel" name="label_22">
                <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;QString qstring1 = &amp;quot; lots\t of\nwhitespace\r\n &amp;quot;;&lt;/p&gt;&lt;p&gt;QString result = qstring1.trimmed();&lt;/p&gt;&lt;p&gt;//result == &amp;quot;lots\t of\nwhitespace&amp;quot;&lt;/p&gt;&lt;p&gt;//空白字符就是QChar::isSpace()返回true的字符，包括ASCII字符：&lt;/p&gt;&lt;p&gt;//'\t'、'\n、'\v'、'\f'、'\r'和' '&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;去掉字符串首尾的空白字符&lt;/p&gt;&lt;p&gt;QString qstring1 = &amp;quot; lots\t of\nwhitespace\r\n &amp;quot;;&lt;/p&gt;&lt;p&gt;QString result = qstring1.trimmed();&lt;/p&gt;&lt;p&gt;//result == &amp;quot;lots\t of\nwhitespace&amp;quot;&lt;/p&gt;&lt;p&gt;//空白字符就是QChar::isSpace()返回true的字符，包括ASCII字符：&lt;/p&gt;&lt;p&gt;//'\t'、'\n、'\v'、'\f'、'\r'和' '&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
               </widget>
              </item>
@@ -630,6 +640,65 @@
              </item>
              <item row="1" column="1">
               <widget class="QLineEdit" name="leSizeResult"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_24">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_23">
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_41">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0" colspan="2">
+              <widget class="QPushButton" name="pbLength">
+               <property name="text">
+                <string>int result = qstring1.length();</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="leLengthResult"/>
+             </item>
+             <item row="2" column="0" colspan="2">
+              <widget class="QLabel" name="label_43">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;count()、size()和length()都返回字符个数，如果字符串中有汉字，那么一个汉字算一个字符&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_25">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_24">
+             <item row="0" column="0" colspan="2">
+              <widget class="QPushButton" name="pbCountQstr">
+               <property name="text">
+                <string>int result = qstring1.count(qstring2, caseSensitivity);</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_44">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="leCountQstrResult"/>
              </item>
             </layout>
            </widget>

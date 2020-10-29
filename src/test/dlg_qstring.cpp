@@ -169,6 +169,36 @@ void dlg_qstring::on_pbSize_clicked()
     ui->leSizeResult->setText(QString::number(result));
 }
 
+void dlg_qstring::on_pbLength_clicked()
+{
+    QString qstring1 = ui->cbQString1->currentText();
+
+    int result = qstring1.length();
+
+    ui->leLengthResult->setText(QString::number(result));
+}
+
+void dlg_qstring::on_pbCountQstr_clicked()
+{
+    QString qstring1 = ui->cbQString1->currentText();
+
+    QString qstring2 = ui->cbQString2->currentText();
+
+    Qt::CaseSensitivity caseSensitivity;
+    if(ui->cbcaseSensitivity->currentText() == "Qt::CaseSensitive")
+    {
+        caseSensitivity = Qt::CaseSensitive;
+    }
+    else if(ui->cbcaseSensitivity->currentText() == "Qt::CaseInsensitive")
+    {
+        caseSensitivity = Qt::CaseInsensitive;
+    }
+
+    int result = qstring1.count(qstring2, caseSensitivity);
+
+    ui->leCountQstrResult->setText(QString::number(result));
+}
+
 void dlg_qstring::on_pbIndexOf_clicked()
 {
     QString qstring1 = ui->cbQString1->currentText();

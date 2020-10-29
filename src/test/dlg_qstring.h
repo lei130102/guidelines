@@ -29,6 +29,8 @@ private slots:
     void on_pbTrimmed_clicked();
     void on_pbCount_clicked();
     void on_pbSize_clicked();
+    void on_pbLength_clicked();
+    void on_pbCountQstr_clicked();
     void on_pbIndexOf_clicked();
     void on_pbLastIndexOf_clicked();
     void on_pbStartsWith_clicked();
