@@ -1,16 +1,16 @@
 cmake_minimum_required(VERSION 3.9)
 
-set(VCPKG_ROOT "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" CACHE STRING "Vcpkg toolchain file")
+set(VCPKG_CMAKE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" CACHE STRING "Vcpkg toolchain file")
 set(VCPKG_TARGET_TRIPLET "x64-windows")
-set(CMAKE_TOOLCHAIN_FILE ${VCPKG_ROOT})
+set(CMAKE_TOOLCHAIN_FILE ${VCPKG_CMAKE})
 
 project(guidelines)
 
 set(CMAKE_BUILD_TYPE "Debug")
 set(CMAKE_CONFIGURATION_TYPES "Debug")
 
-set(CMAKE_MODULE_PATH "${${PROJECT_NAME}_SOURCE_DIR}/cmake/CMakeModules;${CMAKE_MODULE_PATH}")
-set(CMAKE_PREFIX_PATH "$ENV{QTDIR594_64};${CMAKE_PREFIX_PATH}")
+set(CMAKE_MODULE_PATH "${${PROJECT_NAME}_SOURCE_DIR}/cmake/CMakeModules;$ENV{VCPKG_ROOT};${CMAKE_MODULE_PATH}")
+set(CMAKE_PREFIX_PATH "$ENV{QTDIR594_64};$ENV{VCPKG_ROOT};${CMAKE_PREFIX_PATH}")
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -57,4 +57,3 @@ message(STATUS "TEST_BINARY_DIR                   =${TEST_BINARY_DIR}")
 #####
 
 add_subdirectory(${TEST_SOURCE_DIR})
-

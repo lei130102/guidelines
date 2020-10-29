@@ -1,0 +1,904 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>dlg_qstring</class>
+ <widget class="QDialog" name="dlg_qstring">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>996</width>
+    <height>626</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>dlg_qstring</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>变量</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="5" column="0">
+       <widget class="QLabel" name="label_15">
+        <property name="text">
+         <string>iStart</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QComboBox" name="cbiStart">
+        <property name="editable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLabel" name="label_17">
+        <property name="text">
+         <string>sectionFlag</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="0">
+       <widget class="QLabel" name="label_25">
+        <property name="text">
+         <string>iFrom</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="1">
+       <widget class="QComboBox" name="cbiFrom">
+        <property name="editable">
+         <bool>true</bool>
+        </property>
+        <item>
+         <property name="text">
+          <string>0</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="label_16">
+        <property name="text">
+         <string>iEnd</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QComboBox" name="cbqstrSep">
+        <property name="editable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="QComboBox" name="cbsectionFlag">
+        <property name="editable">
+         <bool>false</bool>
+        </property>
+        <item>
+         <property name="text">
+          <string>QString::SectionDefault</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>QString::SectionSkipEmpty</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>QString::SectionIncludeLeadingSep</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>QString::SectionIncludeTrailingSep</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>QString::SectionCaseInsensitiveSeps</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QComboBox" name="cbiEnd">
+        <property name="editable">
+         <bool>true</bool>
+        </property>
+        <item>
+         <property name="text">
+          <string>-1</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="cbQString2">
+        <property name="editable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>qstring1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QComboBox" name="cbQString1">
+        <property name="editable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>qstring2</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>iPosition</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QComboBox" name="cbiN">
+        <property name="editable">
+         <bool>true</bool>
+        </property>
+        <item>
+         <property name="text">
+          <string>-1</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>iN</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_14">
+        <property name="text">
+         <string>qstrSep</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QComboBox" name="cbiPosition">
+        <property name="editable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0">
+       <widget class="QLabel" name="label_26">
+        <property name="text">
+         <string>caseSensitivity</string>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="1">
+       <widget class="QComboBox" name="cbcaseSensitivity">
+        <item>
+         <property name="text">
+          <string>Qt::CaseSensitive</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Qt::CaseInsensitive</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="10" column="0">
+       <widget class="QLabel" name="label_29">
+        <property name="text">
+         <string>iLastFrom</string>
+        </property>
+       </widget>
+      </item>
+      <item row="10" column="1">
+       <widget class="QComboBox" name="cbiLastFrom">
+        <property name="editable">
+         <bool>true</bool>
+        </property>
+        <item>
+         <property name="text">
+          <string>-1</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item row="11" column="0">
+       <widget class="QLabel" name="label_39">
+        <property name="text">
+         <string>splitBehavior</string>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="1">
+       <widget class="QComboBox" name="cbsplitBehavior">
+        <item>
+         <property name="text">
+          <string>QString::KeepEmptyParts</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>QString::SkipEmptyParts</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_2">
+     <property name="title">
+      <string>处理</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QScrollArea" name="scrollArea">
+        <property name="widgetResizable">
+         <bool>true</bool>
+        </property>
+        <widget class="QWidget" name="scrollAreaWidgetContents">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>-3086</y>
+           <width>573</width>
+           <height>3651</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QGroupBox" name="groupBox_3">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_2">
+             <item row="0" column="0" colspan="2">
+              <widget class="QPushButton" name="pbAppend">
+               <property name="text">
+                <string>QString&amp;&amp; result = qstring1.append(qstring2);</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_3">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="leAppendResult"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_4">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_3">
+             <item row="0" column="0" colspan="2">
+              <widget class="QPushButton" name="pbPrepend">
+               <property name="text">
+                <string>QString&amp;&amp; result = qstring1.prepend(qstring2);</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_4">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="lePrependResult"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_5">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_4">
+             <item row="0" column="0" colspan="2">
+              <widget class="QPushButton" name="pbInsert">
+               <property name="text">
+                <string>QString&amp;&amp; result = qstring1.insert(iPosition, qstring2);</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_6">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="leInsertResult">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_6">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_5">
+             <item row="0" column="0" colspan="2">
+              <widget class="QPushButton" name="pbLeft">
+               <property name="text">
+                <string>QString result = qstring1.left(iN);</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_8">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="leLeftResult"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_7">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_6">
+             <item row="0" column="0" colspan="2">
+              <widget class="QPushButton" name="pbMid">
+               <property name="text">
+                <string>QString result = qstring1.mid(iPosition, iN);</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_9">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="leMidResult"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_9">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_8">
+             <item row="0" column="0" colspan="2">
+              <widget class="QPushButton" name="pbRight">
+               <property name="text">
+                <string>QString result = qstring1.right(iN);</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_11">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="leRightResult"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_10">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_9">
+             <item row="0" column="0" colspan="2">
+              <widget class="QPushButton" name="pbToUpper">
+               <property name="text">
+                <string>QString result = qstring1.toUpper();</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_12">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="leToUpperResult"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_11">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_10">
+             <item row="0" column="0" colspan="2">
+              <widget class="QPushButton" name="pbToLower">
+               <property name="text">
+                <string>QString result = qstring1.toLower();</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_13">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="leToLowerResult"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_12">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_11">
+             <item row="0" column="0" colspan="2">
+              <widget class="QPushButton" name="pbSection">
+               <property name="text">
+                <string>QString result = qstring1.section(qstrSep, iStart, iEnd, sectionFlag);</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_18">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="leSectionResult"/>
+             </item>
+             <item row="2" column="0" colspan="2">
+              <widget class="QLabel" name="label_19">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;QString result;&lt;/p&gt;&lt;p&gt;QString qstring1 = &amp;quot;forename**middlename**surname**phone&amp;quot;;&lt;/p&gt;&lt;p&gt;result = qstring1.section(&amp;quot;**&amp;quot;, 2, 2, QString::SectionDefault); &lt;/p&gt;&lt;p&gt;//result == &amp;quot;surname&amp;quot;&lt;/p&gt;&lt;p&gt;result = qstring1.section(&amp;quot;**&amp;quot;, -3, -2, QString::SectionDefault); &lt;/p&gt;&lt;p&gt;//result == &amp;quot;middlename**surname&amp;quot;&lt;/p&gt;&lt;p&gt;QString qstring1 = &amp;quot;/usr/local/bin/myapp&amp;quot;; //first field is empty&lt;/p&gt;&lt;p&gt;result = qstring1.section(&amp;quot;/&amp;quot;, 3, 3, QString::SectionSkipEmpty);&lt;/p&gt;&lt;p&gt;//result == &amp;quot;myapp&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_8">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_7">
+             <item row="0" column="0" colspan="2">
+              <widget class="QPushButton" name="pbSimplified">
+               <property name="text">
+                <string>QString result = qstring1.simplified();</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_10">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="leSimplifiedResult"/>
+             </item>
+             <item row="2" column="0" colspan="2">
+              <widget class="QLabel" name="label_20">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;QString qstring1 = &amp;quot; lots\t of\nwhitespace\r\n &amp;quot;;&lt;/p&gt;&lt;p&gt;QString result = qstring1.simplified();&lt;/p&gt;&lt;p&gt;//result == &amp;quot;lots of whitespace&amp;quot;&lt;/p&gt;&lt;p&gt;//空白字符就是QChar::isSpace()返回true的字符，包括ASCII字符：&lt;/p&gt;&lt;p&gt;//'\t'、'\n、'\v'、'\f'、'\r'和' '&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_13">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_13">
+             <item row="0" column="0" colspan="2">
+              <widget class="QPushButton" name="pbTrimmed">
+               <property name="text">
+                <string>QString result = qstring1.trimmed();</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_21">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="leTrimmedResult"/>
+             </item>
+             <item row="2" column="0" colspan="2">
+              <widget class="QLabel" name="label_22">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;QString qstring1 = &amp;quot; lots\t of\nwhitespace\r\n &amp;quot;;&lt;/p&gt;&lt;p&gt;QString result = qstring1.trimmed();&lt;/p&gt;&lt;p&gt;//result == &amp;quot;lots\t of\nwhitespace&amp;quot;&lt;/p&gt;&lt;p&gt;//空白字符就是QChar::isSpace()返回true的字符，包括ASCII字符：&lt;/p&gt;&lt;p&gt;//'\t'、'\n、'\v'、'\f'、'\r'和' '&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_14">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_12">
+             <item row="0" column="0" colspan="2">
+              <widget class="QPushButton" name="pbCount">
+               <property name="text">
+                <string>int result = qstring1.count();</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_23">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="leCountResult"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_15">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_14">
+             <item row="0" column="0" colspan="2">
+              <widget class="QPushButton" name="pbSize">
+               <property name="text">
+                <string>int result = qstring1.size();</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_24">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="leSizeResult"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_16">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_15">
+             <item row="0" column="0" colspan="2">
+              <widget class="QPushButton" name="pbIndexOf">
+               <property name="text">
+                <string>int result = qstring1.indexOf(qstring2, iFrom, caseSensitivity);</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_27">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="leIndexOfResult"/>
+             </item>
+             <item row="2" column="0" colspan="2">
+              <widget class="QLabel" name="label_28">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;QString qstring1 = &amp;quot;sticky question&amp;quot;;&lt;/p&gt;&lt;p&gt;QString qstring2 = &amp;quot;sti&amp;quot;;&lt;/p&gt;&lt;p&gt;result = qstring1.indexOf(qstring2);&lt;/p&gt;&lt;p&gt;//result == 0&lt;/p&gt;&lt;p&gt;result = qstring1.indexOf(qstring2, 1);&lt;/p&gt;&lt;p&gt;//result == 10&lt;/p&gt;&lt;p&gt;result = qstring1.indexOf(qstring2, 10);&lt;/p&gt;&lt;p&gt;//result == 10&lt;/p&gt;&lt;p&gt;result = qstring1.indexOf(qstring2, 11);&lt;/p&gt;&lt;p&gt;//result == 11&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_17">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_16">
+             <item row="0" column="0" colspan="2">
+              <widget class="QPushButton" name="pbLastIndexOf">
+               <property name="text">
+                <string>int result = qstring1.lastIndexOf(qstring2, iLastFrom, caseSensitivity);</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_30">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="leLastIndexOfResult"/>
+             </item>
+             <item row="2" column="0" colspan="2">
+              <widget class="QLabel" name="label_31">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;QString qstring1 = &amp;quot;crazy azimuths&amp;quot;;&lt;/p&gt;&lt;p&gt;QString qstring2 = &amp;quot;az&amp;quot;;&lt;/p&gt;&lt;p&gt;result = qstring1.lastIndexOf(qstring2);&lt;/p&gt;&lt;p&gt;//result == 6&lt;/p&gt;&lt;p&gt;result = qstring1.lastIndexOf(qstring2, 6);&lt;/p&gt;&lt;p&gt;//result == 6&lt;/p&gt;&lt;p&gt;result = qstring1.lastIndexOf(qstring2, 5);&lt;/p&gt;&lt;p&gt;//result == 2&lt;/p&gt;&lt;p&gt;result = qstring1.lastIndexOf(qstring2, 1);&lt;/p&gt;&lt;p&gt;//result == -1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_18">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_17">
+             <item row="0" column="0" colspan="2">
+              <widget class="QPushButton" name="pbStartsWith">
+               <property name="text">
+                <string>bool result = qstring1.startsWith(qstring2, caseSensitivity);</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_32">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="leStartsWithResult"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_19">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_18">
+             <item row="0" column="0" colspan="2">
+              <widget class="QPushButton" name="pbEndsWith">
+               <property name="text">
+                <string>bool result = qstring1.endsWith(qstring2, caseSensitivity);</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_33">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="leEndsWithResult"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_20">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_19">
+             <item row="0" column="0" colspan="2">
+              <widget class="QPushButton" name="pbContains">
+               <property name="text">
+                <string>bool result = qstring1.contains(qstring2, caseSensitivity);</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_34">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="leContainsResult"/>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_21">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_20">
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_35">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="leIsEmptyResult"/>
+             </item>
+             <item row="0" column="0" colspan="2">
+              <widget class="QPushButton" name="pbIsEmpty">
+               <property name="text">
+                <string>bool result = qstring1.isEmpty();</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0" colspan="2">
+              <widget class="QLabel" name="label_37">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;qstring1 = QString();&lt;/p&gt;&lt;p&gt;result = qstring1.isEmpty();&lt;/p&gt;&lt;p&gt;//result == true&lt;/p&gt;&lt;p&gt;qstring1 = QString(&amp;quot;&amp;quot;);&lt;/p&gt;&lt;p&gt;result = qstring1.isEmpty();&lt;/p&gt;&lt;p&gt;//result == true&lt;/p&gt;&lt;p&gt;qstring1 = QString(&amp;quot;x&amp;quot;);&lt;/p&gt;&lt;p&gt;result = qstring1.isEmpty();&lt;/p&gt;&lt;p&gt;//result == false&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_22">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_21">
+             <item row="0" column="0" colspan="2">
+              <widget class="QPushButton" name="pbIsNull">
+               <property name="text">
+                <string>bool result = qstring1.isNull();</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="leIsNullResult"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_36">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0" colspan="2">
+              <widget class="QLabel" name="label_38">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;qstring1 = QString();&lt;/p&gt;&lt;p&gt;result = qstring1.isNull();&lt;/p&gt;&lt;p&gt;//result == true&lt;/p&gt;&lt;p&gt;qstring1 = QString(&amp;quot;&amp;quot;);&lt;/p&gt;&lt;p&gt;result = qstring1.isNull();&lt;/p&gt;&lt;p&gt;//result == false&lt;/p&gt;&lt;p&gt;qstring1 = QString(&amp;quot;x&amp;quot;);&lt;/p&gt;&lt;p&gt;result = qstring1.isNull();&lt;/p&gt;&lt;p&gt;//result == false&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_23">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_22">
+             <item row="2" column="1">
+              <widget class="QListWidget" name="lwSplitResult"/>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_40">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0" colspan="4">
+              <widget class="QPushButton" name="pbSplit">
+               <property name="text">
+                <string>QStringList result = qstring1.split(qstrSep, splitBehavior, caseSensitivity);</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="0" colspan="3">
+              <widget class="QLabel" name="label_42">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;qstring1 = &amp;quot;a,,b,c&amp;quot;;&lt;/p&gt;&lt;p&gt;qstrSep = &amp;quot;,&amp;quot;;&lt;/p&gt;&lt;p&gt;result = qstring1.split(qstrSep);&lt;/p&gt;&lt;p&gt;//result == [&amp;quot;a&amp;quot;,&amp;quot;&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;]&lt;/p&gt;&lt;p&gt;result = qstring1.split(qstrSep, QString::SkipEmptyParts);&lt;/p&gt;&lt;p&gt;//result == [&amp;quot;a&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>35</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
