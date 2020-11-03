@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1011</width>
-    <height>557</height>
+    <width>1127</width>
+    <height>746</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,6 +20,13 @@
       <string>变量</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
+      <item row="1" column="0">
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>qstring2</string>
+        </property>
+       </widget>
+      </item>
       <item row="5" column="0">
        <widget class="QLabel" name="label_15">
         <property name="text">
@@ -31,13 +38,6 @@
        <widget class="QComboBox" name="cbiStart">
         <property name="editable">
          <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="0">
-       <widget class="QLabel" name="label_17">
-        <property name="text">
-         <string>sectionFlag</string>
         </property>
        </widget>
       </item>
@@ -60,10 +60,10 @@
         </item>
        </widget>
       </item>
-      <item row="6" column="0">
-       <widget class="QLabel" name="label_16">
+      <item row="7" column="0">
+       <widget class="QLabel" name="label_17">
         <property name="text">
-         <string>iEnd</string>
+         <string>sectionFlag</string>
         </property>
        </widget>
       </item>
@@ -106,6 +106,27 @@
         </item>
        </widget>
       </item>
+      <item row="6" column="0">
+       <widget class="QLabel" name="label_16">
+        <property name="text">
+         <string>iEnd</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>qstring1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="cbQString2">
+        <property name="editable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
       <item row="6" column="1">
        <widget class="QComboBox" name="cbiEnd">
         <property name="editable">
@@ -116,20 +137,6 @@
           <string>-1</string>
          </property>
         </item>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QComboBox" name="cbQString2">
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>qstring1</string>
-        </property>
        </widget>
       </item>
       <item row="0" column="1">
@@ -149,17 +156,17 @@
         </item>
        </widget>
       </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>qstring2</string>
-        </property>
-       </widget>
-      </item>
       <item row="2" column="0">
        <widget class="QLabel" name="label_5">
         <property name="text">
          <string>iPosition</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="label_14">
+        <property name="text">
+         <string>qstrSep</string>
         </property>
        </widget>
       </item>
@@ -182,24 +189,10 @@
         </property>
        </widget>
       </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="label_14">
+      <item row="10" column="0">
+       <widget class="QLabel" name="label_29">
         <property name="text">
-         <string>qstrSep</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QComboBox" name="cbiPosition">
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="0">
-       <widget class="QLabel" name="label_26">
-        <property name="text">
-         <string>caseSensitivity</string>
+         <string>iLastFrom</string>
         </property>
        </widget>
       </item>
@@ -217,10 +210,24 @@
         </item>
        </widget>
       </item>
-      <item row="10" column="0">
-       <widget class="QLabel" name="label_29">
+      <item row="2" column="1">
+       <widget class="QComboBox" name="cbiPosition">
+        <property name="editable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="9" column="0">
+       <widget class="QLabel" name="label_26">
         <property name="text">
-         <string>iLastFrom</string>
+         <string>caseSensitivity</string>
+        </property>
+       </widget>
+      </item>
+      <item row="11" column="0">
+       <widget class="QLabel" name="label_39">
+        <property name="text">
+         <string>splitBehavior</string>
         </property>
        </widget>
       </item>
@@ -236,13 +243,6 @@
         </item>
        </widget>
       </item>
-      <item row="11" column="0">
-       <widget class="QLabel" name="label_39">
-        <property name="text">
-         <string>splitBehavior</string>
-        </property>
-       </widget>
-      </item>
       <item row="11" column="1">
        <widget class="QComboBox" name="cbsplitBehavior">
         <item>
@@ -256,6 +256,19 @@
          </property>
         </item>
        </widget>
+      </item>
+      <item row="12" column="1">
+       <spacer name="verticalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
       </item>
      </layout>
     </widget>
@@ -275,9 +288,9 @@
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>-873</y>
-           <width>691</width>
-           <height>3235</height>
+           <y>-4231</y>
+           <width>704</width>
+           <height>4996</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -942,6 +955,159 @@
                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;qstring1 = &amp;quot;a,,b,c&amp;quot;;&lt;/p&gt;&lt;p&gt;qstrSep = &amp;quot;,&amp;quot;;&lt;/p&gt;&lt;p&gt;result = qstring1.split(qstrSep);&lt;/p&gt;&lt;p&gt;//result == [&amp;quot;a&amp;quot;,&amp;quot;&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;]&lt;/p&gt;&lt;p&gt;result = qstring1.split(qstrSep, QString::SkipEmptyParts);&lt;/p&gt;&lt;p&gt;//result == [&amp;quot;a&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;]&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
               </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="groupBox_26">
+            <property name="title">
+             <string/>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_25">
+             <item row="0" column="0" colspan="3">
+              <widget class="QLabel" name="label_45">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;short QString::toShort(bool *ok = Q_NULLPTR, int base = 10) const&lt;/p&gt;&lt;p&gt;ushort QString::toUShort(bool *ok = Q_NULLPTR, int base = 10) const&lt;/p&gt;&lt;p&gt;int QString::toInt(bool *ok = Q_NULLPTR, int base = 10) const&lt;/p&gt;&lt;p&gt;uint QString::toUInt(bool *ok = Q_NULLPTR, int base = 10) const&lt;/p&gt;&lt;p&gt;long QString::toLong(bool *ok = Q_NULLPTR, int base = 10) const&lt;/p&gt;&lt;p&gt;ulong QString::toULong(bool *ok = Q_NULLPTR, int base = 10) const&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0" colspan="3">
+              <widget class="QPushButton" name="pbToInt">
+               <property name="text">
+                <string>int result = qstring1.toInt();</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_48">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1" colspan="2">
+              <widget class="QLineEdit" name="leToIntResult"/>
+             </item>
+             <item row="3" column="0" colspan="3">
+              <widget class="QLabel" name="label_46">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;qulonglong QString::toULongLong(bool *ok = Q_NULLPTR, int base = 10) const&lt;/p&gt;&lt;p&gt;qlonglong QString::toLongLong(bool *ok = Q_NULLPTR, int base = 10) const&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+             <item row="4" column="0" colspan="3">
+              <widget class="QPushButton" name="pbToDouble">
+               <property name="text">
+                <string>double result = qstring1.toDouble();</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="0">
+              <widget class="QLabel" name="label_49">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="5" column="2">
+              <widget class="QLineEdit" name="leToDoubleResult"/>
+             </item>
+             <item row="6" column="0" colspan="3">
+              <widget class="QLabel" name="label_47">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;[static] QString QString::number(long n, int base = 10)&lt;/p&gt;&lt;p&gt;[static] QString QString::number(uint n, int base = 10)&lt;/p&gt;&lt;p&gt;[static] QString QString::number(int n, int base = 10)&lt;/p&gt;&lt;p&gt;[static] QString QString::number(ulong n, int base = 10)&lt;/p&gt;&lt;p&gt;[static] QString QString::number(qlonglong n, int base = 10)&lt;/p&gt;&lt;p&gt;[static] QString QString::number(qulonglong n, int base = 10)&lt;/p&gt;&lt;p&gt;[static] QString QString::number(double n, char format = 'g', int precision = 6)&lt;/p&gt;&lt;p&gt;返回base进制字符串形式&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="0" colspan="3">
+              <widget class="QPushButton" name="pbNumber">
+               <property name="text">
+                <string>QString result = QString::number(iN);</string>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="0">
+              <widget class="QLabel" name="label_50">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="8" column="2">
+              <widget class="QLineEdit" name="leNumberResult"/>
+             </item>
+             <item row="9" column="0" colspan="3">
+              <widget class="QLabel" name="label_51">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;[static] QString QString::asprintf(const char *cformat, ...)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+             <item row="10" column="0" colspan="3">
+              <widget class="QPushButton" name="pbASprintf">
+               <property name="text">
+                <string>QString result = QString::asprintf(&quot;%d&quot;, iN);</string>
+               </property>
+              </widget>
+             </item>
+             <item row="11" column="0">
+              <widget class="QLabel" name="label_52">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="11" column="2">
+              <widget class="QLineEdit" name="leASprintfResult"/>
+             </item>
+             <item row="12" column="0" colspan="3">
+              <widget class="QLabel" name="label_53">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;QString &amp;amp;QString::setNum(int n, int base = 10)&lt;/p&gt;&lt;p&gt;QString &amp;amp;QString::setNum(ushort n, int base = 10)&lt;/p&gt;&lt;p&gt;QString &amp;amp;QString::setNum(short n, int base = 10)&lt;/p&gt;&lt;p&gt;QString &amp;amp;QString::setNum(uint n, int base = 10)&lt;/p&gt;&lt;p&gt;QString &amp;amp;QString::setNum(long n, int base = 10)&lt;/p&gt;&lt;p&gt;QString &amp;amp;QString::setNum(ulong n, int base = 10)&lt;/p&gt;&lt;p&gt;QString &amp;amp;QString::setNum(qlonglong n, int base = 10)&lt;/p&gt;&lt;p&gt;QString &amp;amp;QString::setNum(qulonglong n, int base = 10)&lt;/p&gt;&lt;p&gt;QString &amp;amp;QString::setNum(float n, char format = 'g', int precision = 6)&lt;/p&gt;&lt;p&gt;QString &amp;amp;QString::setNum(double n, char format = 'g', int precision = 6)&lt;/p&gt;&lt;p&gt;返回base进制字符串形式&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+             <item row="13" column="0" colspan="3">
+              <widget class="QPushButton" name="pbSetNum">
+               <property name="text">
+                <string>QString result;QString&amp;&amp; resultRef = result.setNum(iN);</string>
+               </property>
+              </widget>
+             </item>
+             <item row="14" column="0" colspan="2">
+              <widget class="QLabel" name="label_54">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="14" column="2">
+              <widget class="QLineEdit" name="leSetNumResult"/>
+             </item>
+             <item row="15" column="0" colspan="3">
+              <widget class="QLabel" name="label_55">
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;QString &amp;amp;QString::sprintf(const char *format, ...)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+             <item row="16" column="0" colspan="3">
+              <widget class="QPushButton" name="pbSprintf">
+               <property name="text">
+                <string>QString result;QString&amp;&amp; resultRef = result.sprintf(&quot;%d&quot;, iN);</string>
+               </property>
+              </widget>
+             </item>
+             <item row="17" column="0">
+              <widget class="QLabel" name="label_56">
+               <property name="text">
+                <string>result</string>
+               </property>
+              </widget>
+             </item>
+             <item row="17" column="2">
+              <widget class="QLineEdit" name="leSprintfResult"/>
              </item>
             </layout>
            </widget>

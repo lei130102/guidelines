@@ -39,6 +39,12 @@ private slots:
     void on_pbIsEmpty_clicked();
     void on_pbIsNull_clicked();
     void on_pbSplit_clicked();
+    void on_pbToInt_clicked();
+    void on_pbToDouble_clicked();
+    void on_pbNumber_clicked();
+    void on_pbASprintf_clicked();
+    void on_pbSetNum_clicked();
+    void on_pbSprintf_clicked();
 
 private:
     Ui::dlg_qstring *ui;

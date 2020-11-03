@@ -36,3 +36,5 @@ add_exe(test "test.cpp")
 add_exe(test_idw "test_idw.cpp")
 
 add_exe(test_qstring "test_qstring.cpp" "dlg_qstring.h" "dlg_qstring.cpp" "dlg_qstring.ui")
+
+add_exe(test_qdialog_derived_class "test_qdialog_derived_class.cpp" "dlg_qdialog_derived_class.h" "dlg_qdialog_derived_class.cpp" "dlg_qdialog_derived_class.ui")

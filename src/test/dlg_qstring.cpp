@@ -338,6 +338,62 @@ void dlg_qstring::on_pbSplit_clicked()
     }
 }
 
+void dlg_qstring::on_pbToInt_clicked()
+{
+    QString qstring1 = ui->cbQString1->currentText();
+
+    int result = qstring1.toInt();
+
+    ui->leToIntResult->setText(QString::number(result));
+}
+
+void dlg_qstring::on_pbToDouble_clicked()
+{
+    QString qstring1 = ui->cbQString1->currentText();
+
+    int result = qstring1.toDouble();
+
+    ui->leToDoubleResult->setText(QString::number(result));
+}
+
+void dlg_qstring::on_pbNumber_clicked()
+{
+    int iN = ui->cbiN->currentText().toInt();
+
+    QString result = QString::number(iN);
+
+    ui->leNumberResult->setText(result);
+}
+
+void dlg_qstring::on_pbASprintf_clicked()
+{
+    int iN = ui->cbiN->currentText().toInt();
+
+    QString result = QString::asprintf("%d", iN);
+
+    ui->leASprintfResult->setText(result);
+}
+
+void dlg_qstring::on_pbSetNum_clicked()
+{
+    int iN = ui->cbiN->currentText().toInt();
+
+    QString result;
+    QString& resultRef = result.setNum(iN);
+
+    ui->leSetNumResult->setText(result);
+}
+
+void dlg_qstring::on_pbSprintf_clicked()
+{
+    int iN = ui->cbiN->currentText().toInt();
+
+    QString result;
+    QString& resultRef = result.sprintf("%d", iN);
+
+    ui->leSprintfResult->setText(result);
+}
+
 
 
 
