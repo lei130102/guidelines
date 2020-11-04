@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>dlg_dbghelp</class>
+ <widget class="QDialog" name="dlg_dbghelp">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1179</width>
+    <height>951</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QSplitter" name="splitter">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="title">
+       <string>变量</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>pszName</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="cbName">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>dwordFlag</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="cbFlag">
+         <property name="editable">
+          <bool>false</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>UNDNAME_COMPLETE</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>UNDNAME_NO_LEADING_UNDERSCORES</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>UNDNAME_NO_MS_KEYWORDS</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>UNDNAME_NO_FUNCTION_RETURNS</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>UNDNAME_NO_ALLOCATION_MODEL</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>UNDNAME_NO_ALLOCATION_LANGUAGE</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>UNDNAME_NO_MS_THISTYPE</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>UNDNAME_NO_CV_THISTYPE</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>UNDNAME_NO_THISTYPE</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>UNDNAME_NO_ACCESS_SPECIFIERS</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>UNDNAME_NO_THROW_SIGNATURES</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>UNDNAME_NO_MEMBER_TYPE</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>UNDNAME_NO_RETURN_UDT_MODEL</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>UNDNAME_32_BIT_DECODE</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>UNDNAME_NAME_ONLY</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>UNDNAME_NO_ARGUMENTS</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>UNDNAME_NO_SPECIAL_SYMS</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;UNDNAME_COMPLETE:启用完全的反修饰&lt;/p&gt;&lt;p&gt;UNDNAME_NO_LEADING_UNDERSCORES:从Microsoft关键字中移除前导下划线&lt;/p&gt;&lt;p&gt;UNDNAME_NO_MS_KEYWORDS:禁用Microsoft关键字的展开&lt;/p&gt;&lt;p&gt;UNDNAME_NO_FUNCTION_RETURNS:禁用初等声明的返回类型展开&lt;/p&gt;&lt;p&gt;UNDNAME_NO_ALLOCATION_MODEL:禁用声明模型的展开&lt;/p&gt;&lt;p&gt;UNDNAME_NO_ALLOCATION_LANGUAGE:禁用声明语言说明符的展开&lt;/p&gt;&lt;p&gt;UNDNAME_NO_MS_THISTYPE:禁用初等声明的this类型上的Microsoft关键字的展开&lt;/p&gt;&lt;p&gt;UNDNAME_NO_CV_THISTYPE:禁用初等声明的this类型上的CodeView修饰符的展开&lt;/p&gt;&lt;p&gt;UNDNAME_NO_THISTYPE:禁用this类型上的所有修饰符&lt;/p&gt;&lt;p&gt;UNDNAME_NO_ACCESS_SPECIFIERS:禁用成员的访问指定符的展开&lt;/p&gt;&lt;p&gt;UNDNAME_NO_THROW_SIGNATURES:禁用函数和函数指针的throw签名的展开&lt;/p&gt;&lt;p&gt;UNDNAME_NO_MEMBER_TYPE:禁用成员的static或virtual属性的展开&lt;/p&gt;&lt;p&gt;UNDNAME_NO_RETURN_UDT_MODEL:禁用用户定义类型返回的Microsoft模型的展开&lt;/p&gt;&lt;p&gt;UNDNAME_32_BIT_DECODE:反修饰32位已修饰名&lt;/p&gt;&lt;p&gt;UNDNAME_NAME_ONLY:只反修饰初等声明的名称。返回[作用域::]名称。不展开模板形参&lt;/p&gt;&lt;p&gt;UNDNAME_NO_ARGUMENTS:不反修饰函数参数&lt;/p&gt;&lt;p&gt;UNDNAME_NO_SPECIAL_SYMS:不反修饰特殊名称，如vtable、vcall、vector和metatype等&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="title">
+       <string>处理</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QScrollArea" name="scrollArea">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>620</width>
+            <height>876</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <widget class="QGroupBox" name="groupBox_3">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout">
+              <item row="0" column="0" colspan="2">
+               <widget class="QPushButton" name="pbUnDecorateSymbolName">
+                <property name="text">
+                 <string>DWORD result = UnDecorateSymbolName(pszName, pszOutputString, dwordMaxStringLength, dwordFlag);</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label">
+                <property name="text">
+                 <string>result</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="leUnDecorateSymbolNameResult"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>760</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

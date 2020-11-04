@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>dlg_qdialog</class>
+ <widget class="QDialog" name="dlg_qdialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1121</width>
+    <height>735</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QSplitter" name="splitter">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="title">
+       <string>变量</string>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="title">
+       <string>处理</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QScrollArea" name="scrollArea">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>1254</width>
+            <height>2149</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <widget class="QGroupBox" name="groupBox_3">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout">
+              <item row="1" column="0">
+               <widget class="QLabel" name="label">
+                <property name="text">
+                 <string>value</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="leValueExec"/>
+              </item>
+              <item row="0" column="0" colspan="2">
+               <widget class="QPushButton" name="pbDlgValueExec">
+                <property name="text">
+                 <string>每次调用创建一个dlg_value对象，然后dlgValue.exec()，最后销毁dlg_value对象</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>    //new一个对话框对象，并指定父QWidget，这样他就默认定位在顶级父QWidget的上面居中位置，并且共享父QWidget的任务栏条目
+    dlg_value* dlgValue = new dlg_value(this);
+
+    Qt::WindowFlags windowFlags = dlgValue-&gt;windowFlags();
+    //固定对话框大小
+    windowFlags |= Qt::MSWindowsFixedSizeDialogHint;
+    //去掉对话框右上角的问号，只保留关闭
+    windowFlags &amp;= ~Qt::WindowContextHelpButtonHint;
+    dlgValue-&gt;setWindowFlags(windowFlags);
+
+    //自定义对话框数据初始化
+    dlgValue-&gt;setValue(ui-&gt;leValueExec-&gt;text());
+
+    //模态方式显示对话框
+    int ret = dlgValue-&gt;exec();
+    if(ret == QDialog::Accepted)
+    {
+        ui-&gt;leValueExec-&gt;setText(dlgValue-&gt;getValue());
+    }
+
+    //delete对话框对象
+    delete dlgValue;//这里会调用对话框对象的析构函数
+
+    //注意：不能设置setAttribute(Qt::WA_DeleteOnClose)，一关闭对话框就删除对话框对象会导致无法获取对话框中的值</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_4">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_2">
+              <item row="0" column="0" colspan="2">
+               <widget class="QPushButton" name="pbDlgValueExecLongTime">
+                <property name="text">
+                 <string>只在调用时创建一个dlg_value对象，然后dlgValue.exec()，最后程序关闭时通过父QWidget销毁dlg_value对象</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_3">
+                <property name="text">
+                 <string>value</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="leValueExecLongTime"/>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QLabel" name="label_4">
+                <property name="text">
+                 <string>    //一个dlg_value指针，可以是局部静态变量、全局变量、dlg_value的静态成员变量或者本单例类的非静态成员变量等等
+    //具体是什么以使用方便为准
+    static dlg_value* g_dlgValue = nullptr;
+
+    //当指针是初始状态时，new一个对话框对象，并指定父QWidget
+    if(g_dlgValue == nullptr)
+    {
+        g_dlgValue = new dlg_value(this);
+    }
+
+    Qt::WindowFlags windowFlags = g_dlgValue-&gt;windowFlags();
+    //固定对话框大小
+    windowFlags |= Qt::MSWindowsFixedSizeDialogHint;
+    //去掉对话框右上角的问号，只保留关闭
+    windowFlags &amp;= ~Qt::WindowContextHelpButtonHint;
+    g_dlgValue-&gt;setWindowFlags(windowFlags);
+
+    //自定义对话框数据初始化
+    g_dlgValue-&gt;setValue(ui-&gt;leValueExecLongTime-&gt;text());
+
+    //模态方式显示对话框
+    int ret = g_dlgValue-&gt;exec();
+    if(ret == QDialog::Accepted)
+    {
+        ui-&gt;leValueExecLongTime-&gt;setText(g_dlgValue-&gt;getValue());
+    }
+
+    //不再通过delete g_dlgValue;在此时销毁，而是通过父QWidget销毁
+
+    //注意：不能设置setAttribute(Qt::WA_DeleteOnClose)，一关闭对话框就删除对话框对象会导致无法获取对话框中的值</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_5">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_3">
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_5">
+                <property name="text">
+                 <string>value</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0" colspan="2">
+               <widget class="QPushButton" name="pbDlgValueShow">
+                <property name="text">
+                 <string>只创建一个指向dlg_value对象的指针，每次调用创建一个dlg_value对象，然后dlg_value.show()，不同窗口间相互操作，关闭对话框自动销毁对象</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="leValueShow"/>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QLabel" name="label_6">
+                <property name="text">
+                 <string>    //防止同时创建多个dlg_value对象
+    ui-&gt;pbDlgValueShow-&gt;setEnabled(false);
+
+    //一个dlg_value指针，可以是局部静态变量、全局变量、dlg_value的静态成员变量或者本单例类的非静态成员变量等等
+    //具体是什么以使用方便为准
+    //注意不能使用局部非静态变量，因为当dlg_value对象销毁后，还需要通知相关类(这里的通知方式就是判断指针是否为空)
+    static dlg_value* g_dlgValue = nullptr;//为了指针的生命周期
+
+    g_dlgValue = new dlg_value(this);
+
+    //对话框关闭时自动删除，针对关闭对话框后，不需要从对话框对象中获取值的情况，不过也不是绝对的，因为可以利用closeEvent中的信号
+    g_dlgValue-&gt;setAttribute(Qt::WA_DeleteOnClose);
+
+    Qt::WindowFlags windowFlags = g_dlgValue-&gt;windowFlags();
+    //固定对话框大小
+    windowFlags |= Qt::MSWindowsFixedSizeDialogHint;
+    //去掉对话框右上角的问号，只保留关闭
+    windowFlags &amp;= ~Qt::WindowContextHelpButtonHint;
+    //针对非模态显示对话框，将对话框显示始终在最上方
+    windowFlags |= Qt::WindowStaysOnTopHint;
+    g_dlgValue-&gt;setWindowFlags(windowFlags);
+
+    //这里就不叫初始化，因为两个窗口可以同时操作
+    connect(ui-&gt;leValueShow, &amp;QLineEdit::textChanged, [](QString const&amp; qstr){
+        if(g_dlgValue != nullptr)
+        {
+            g_dlgValue-&gt;setValue(qstr);
+        }
+    });
+    connect(g_dlgValue, &amp;dlg_value::valueChanged, [this](QString const&amp; qstr){
+        ui-&gt;leValueShow-&gt;setText(qstr);
+    });
+
+    //
+    connect(g_dlgValue, &amp;dlg_value::shown, [this](){
+
+        QMessageBox::information(this, QString(), QString::fromStdWString(boost::locale::conv::to_utf&lt;wchar_t&gt;(&quot;dlg_qdialog中的connect(dlgValue, &amp;dlg_value::shown, 处理)&quot;, &quot;gbk&quot;)), QMessageBox::Ok);
+
+    });
+
+    //点击“确定”，不会调用dlg_value::closeEvent(QCloseEvent* event)
+    //点击“取消”，不会调用dlg_value::closeEvent(QCloseEvent* event)
+    //点击“×”，会调用dlg_value::closeEvent(QCloseEvent* event)，但不会触发QDialog::finished信号
+    connect(g_dlgValue, &amp;dlg_value::closed,[this](){
+
+        QMessageBox::information(this, QString(), QString::fromStdWString(boost::locale::conv::to_utf&lt;wchar_t&gt;(&quot;dlg_qdialog中的connect(dlgValue, &amp;dlg_value::closed, 处理)&quot;, &quot;gbk&quot;)), QMessageBox::Ok);
+
+    });
+
+    //点击“确定”，会触发QDialog::finished信号
+    //点击“取消”，会触发QDialog::finished信号
+    //点击“×”，不会触发QDialog::finished信号，但会调用dlg_value::closeEvent(QCloseEvent* event)
+    connect(g_dlgValue, &amp;QDialog::finished, [this](int result){
+
+        QMessageBox::information(this, QString(), QString::fromStdWString(boost::locale::conv::to_utf&lt;wchar_t&gt;(&quot;dlg_qdialog中的connect(dlgValue, &amp;QDialog::finished, 处理)&quot;, &quot;gbk&quot;)), QMessageBox::Ok);
+
+        if(result == QDialog::Accepted)
+        {
+            ui-&gt;leValueShow-&gt;setText(g_dlgValue-&gt;getValue());
+        }
+    });
+
+    //因为dlgValue-&gt;setAttribute(Qt::WA_DeleteOnClose);
+    //点击“确定”，点击“取消”，点击“×”，都会调用dlg_value的析构函数
+    connect(g_dlgValue, &amp;dlg_value::destroyed, [this](){
+
+        QMessageBox::information(this, QString(), QString::fromStdWString(boost::locale::conv::to_utf&lt;wchar_t&gt;(&quot;dlg_qdialog中的connect(dlgValue, &amp;dlg_value::destroyed, 处理)&quot;, &quot;gbk&quot;)), QMessageBox::Ok);
+
+        ui-&gt;pbDlgValueShow-&gt;setEnabled(true);
+
+        g_dlgValue = nullptr;//注意！dlg_value对象被销毁必须通知相关类指向dlg_value对象的指针为nullptr
+    });
+
+
+    //非模态方式显示对话框
+    g_dlgValue-&gt;show();//不会阻塞
+</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>16</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

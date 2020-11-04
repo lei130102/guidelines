@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>dlg_qlineedit_qtextedit_qplaintextedit</class>
+ <widget class="QDialog" name="dlg_qlineedit_qtextedit_qplaintextedit">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1149</width>
+    <height>762</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QSplitter" name="splitter">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="title">
+       <string/>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>iMinimum</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="cbMinimum">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>dBottom</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>iMaximum</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="cbMaximum">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>dTop</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QComboBox" name="cbBottom">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QComboBox" name="cbTop">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QComboBox" name="cbDecimals">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>iDecimals</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_10">
+         <property name="text">
+          <string>iMaxLength</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QComboBox" name="cbMaxLength">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_17">
+         <property name="text">
+          <string>echomode</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QComboBox" name="cbEchoMode">
+         <item>
+          <property name="text">
+           <string>QLineEdit::Normal</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QLineEdit::NoEcho</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QLineEdit::Password</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QLineEdit::PasswordEchoOnEdit</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="title">
+       <string/>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QScrollArea" name="scrollArea">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>-1035</y>
+            <width>798</width>
+            <height>1860</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <widget class="QGroupBox" name="groupBox_3">
+             <property name="title">
+              <string>(不推荐使用)</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_2">
+              <item row="0" column="0">
+               <widget class="QPushButton" name="pbValidatorInt">
+                <property name="text">
+                 <string>设置</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="QLabel" name="label">
+                <property name="text">
+                 <string>限制整数的数值范围
+ui-&gt;leValidatorInt-&gt;setValidator(new QIntValidator(iMinimum(), iMaxinum(), this));</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QPushButton" name="pbValidatorDouble">
+                <property name="text">
+                 <string>设置</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="leValidatorDouble"/>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="leValidatorInt"/>
+              </item>
+              <item row="5" column="0" colspan="2">
+               <widget class="QLabel" name="label_9">
+                <property name="text">
+                 <string>限制输入长度
+ui-&gt;leValidatorLength-&gt;setMaxLength(iMaxLength);</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0" colspan="2">
+               <widget class="QLabel" name="label_7">
+                <property name="text">
+                 <string>限制浮点数的数值范围
+ui-&gt;leValidatorDouble-&gt;setValidator(new QDoubleValidator(dBottom(), dTop(), iDecimals(), this));
+因为浮点数的储存方式不同所以以上代码只能实现小数位的限制，却不能限制整数位</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QLineEdit" name="leValidatorLength"/>
+              </item>
+              <item row="4" column="0">
+               <widget class="QPushButton" name="pbValidatorLength">
+                <property name="text">
+                 <string>设置</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_6">
+             <property name="title">
+              <string>(推荐使用)</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_3">
+              <item row="0" column="0">
+               <widget class="QPushButton" name="pbValidatorNumber">
+                <property name="text">
+                 <string>设置</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="leValidatorNumber"/>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="QLabel" name="label_8">
+                <property name="text">
+                 <string>限制只能输入数字
+    QRegExp re(&quot;^[0-9]+$&quot;);
+    QValidator* validator = new QRegExpValidator(re, ui-&gt;leValidatorNumber);
+    ui-&gt;leValidatorNumber-&gt;setValidator(validator);</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QPushButton" name="pbValidatorInt180">
+                <property name="text">
+                 <string>设置</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="leValidatorInt180"/>
+              </item>
+              <item row="3" column="0" colspan="2">
+               <widget class="QLabel" name="label_11">
+                <property name="text">
+                 <string>限制整数范围为[-180,180]
+    QRegExp re(&quot;(^-?180$)|(^-?1[0-7]\\d$)|(^-?[1-9]\\d$)|(^-?[1-9]$)|^0$&quot;);
+    QValidator* validator = new QRegExpValidator(re, ui-&gt;leValidatorInt180);
+    ui-&gt;leValidatorInt180-&gt;setValidator(validator);</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QPushButton" name="pbValidatorDouble180">
+                <property name="text">
+                 <string>设置</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QLineEdit" name="leValidatorDouble180"/>
+              </item>
+              <item row="5" column="0" colspan="2">
+               <widget class="QLabel" name="label_12">
+                <property name="text">
+                 <string>限制浮点范围为[-180, 180]
+    QRegExp re(&quot;^-?(180|1?[0-7]?\\d(\\.\\d+)?)$&quot;);
+    QValidator* validator = new QRegExpValidator(re, ui-&gt;leValidatorDouble180);
+    ui-&gt;leValidatorDouble180-&gt;setValidator(validator);</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="0">
+               <widget class="QPushButton" name="pbValidatorDouble180_4">
+                <property name="text">
+                 <string>设置</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
+               <widget class="QLineEdit" name="leValidatorDouble180_4"/>
+              </item>
+              <item row="7" column="0" colspan="2">
+               <widget class="QLabel" name="label_13">
+                <property name="text">
+                 <string>限制浮点范围为[-180, 180]并限定为小数位后4位
+    QRegExp re(&quot;^-?(180|1?[0-7]?\\d(\\.\\d{1,4})?)$&quot;);
+    QValidator* validator= new QRegExpValidator(re, ui-&gt;leValidatorDouble180_4);
+    ui-&gt;leValidatorDouble_4-&gt;setValidator(validator);</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_7">
+             <property name="title">
+              <string>QLineEdit派生类</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_4">
+              <item row="0" column="0">
+               <widget class="FocusInSelectLineEdit" name="lineEdit"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_14">
+                <property name="text">
+                 <string>获得焦点时自动选择已有的所有文本</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_8">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_5">
+              <item row="0" column="0">
+               <widget class="QPushButton" name="pbReadOnly">
+                <property name="text">
+                 <string>设置</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="leReadOnly"/>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="QLabel" name="label_15">
+                <property name="text">
+                 <string>不可编辑
+ui-&gt;leReadOnly-&gt;setReadOnly(true);</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_9">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_7">
+              <item row="0" column="0">
+               <widget class="QPushButton" name="pbEchoMode">
+                <property name="text">
+                 <string>设置</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="leEchoMode"/>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="QLabel" name="label_18">
+                <property name="text">
+                 <string>设置密码输入方式
+ui-&gt;leEchoMode-&gt;setEchoMode(echomode);
+QLineEdit::Normal  正常显示输入的字符，默认选项。
+QLineEdit::NoEcho  不显示任何输入，常用于密码类型，包括密码长度
+QLineEdit::Password  显示平台相关的密码掩码字符，而不是实际的字符输入。
+QLineEdit::PasswordEchoOnEdit 处于输入状态的时候，是正常显示字符。 输入完毕之后,使用Password形式隐藏字符  </string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_4">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_6">
+              <item row="0" column="0">
+               <widget class="QTextEdit" name="textEdit"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_16">
+                <property name="text">
+                 <string>QTextEdit支持多行(自动换行)和富文本(HTML)显示
+
+也可以使用QLabel+'\n'换行也具有相同的效果。但是你需要根据QFontMetrics类来计算当前字符串的长度，
+这种计算的方式还是不是很精准，会致使文字换行长短不一</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_5">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_8">
+              <item row="0" column="0">
+               <widget class="QPlainTextEdit" name="plainTextEdit"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_19">
+                <property name="text">
+                 <string>QPlainTextEdit支持富文本编辑</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_10">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_9">
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_20">
+                <property name="text">
+                 <string>在Qt中获取QTextEdit高度后，手动设置高度（或者宽度），同时设置不显示滚动条，就可以实现类似QLabel的效果，不显示QTextEdit的滚动条
+
+
+对于不支持自动换行的地方，可以使用QTextEdit
+
+比如QTableWidgetItem不支持换行，即使使用\n也不行</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QTableWidget" name="twTextEdit"/>
+              </item>
+              <item row="0" column="0">
+               <widget class="QPushButton" name="pbTWTextEdit">
+                <property name="text">
+                 <string>设置</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label_21">
+                <property name="text">
+                 <string>    ui-&gt;twTextEdit-&gt;setRowCount(2);
+    ui-&gt;twTextEdit-&gt;setColumnCount(2);
+
+    QTextEdit* pTextEdit = new QTextEdit;//用于setCellWidget，所以不需要指定父QWidget
+    pTextEdit-&gt;setReadOnly(true);
+    pTextEdit-&gt;setText(&quot;qwertyuiopasdfghjklzxcvbnm1234567890&quot;);
+
+    //固定宽度
+    pTextEdit-&gt;setFixedWidth(100);
+
+    //文本高度
+    QTextDocument* pTextDocument = pTextEdit-&gt;document();
+    pTextDocument-&gt;adjustSize();
+    int height = pTextDocument-&gt;size().height();//注意如果是以setStyleSheet方式设置的字体，那么获取的高度会偏小
+
+    //隐藏滚动条
+    pTextEdit-&gt;verticalScrollBar()-&gt;hide();
+
+    //取消边框
+    pTextEdit-&gt;setStyleSheet(&quot;QTextEdit{border:none;}&quot;);
+
+    ui-&gt;twTextEdit-&gt;setCellWidget(0, 0, pTextEdit);
+    ui-&gt;twTextEdit-&gt;setRowHeight(0, height * 1.3);//1.3为了有个余量</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>102</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>FocusInSelectLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>focusinselectlineedit.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

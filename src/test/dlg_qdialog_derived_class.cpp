@@ -46,6 +46,7 @@ QColor dlg_qdialog_derived_class::get_qcolorInitial() const
     {
         return QColor(Qt::white);
     }
+    return QColor();
 }
 
 QString dlg_qdialog_derived_class::get_qstrTitle() const
@@ -328,6 +329,10 @@ QMessageBox::StandardButtons dlg_qdialog_derived_class::get_standardbuttonButton
     {
         return QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel;
     }
+    else
+    {
+        return QMessageBox::NoButton;
+    }
 }
 
 QMessageBox::StandardButton dlg_qdialog_derived_class::get_standardbuttonDefaultButton() const
@@ -371,6 +376,10 @@ QMessageBox::StandardButton dlg_qdialog_derived_class::get_standardbuttonDefault
     else if(ui->cbDefaultButton->currentText() == QString::fromLocal8Bit("QMessageBox::NoAll"))
     {
         return QMessageBox::NoAll;
+    }
+    else
+    {
+        return QMessageBox::NoButton;
     }
 }
 

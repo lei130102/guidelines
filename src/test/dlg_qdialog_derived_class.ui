@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1543</width>
-    <height>783</height>
+    <height>963</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,1209 +15,1212 @@
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
-    <widget class="QGroupBox" name="groupBox">
-     <property name="title">
-      <string>变量</string>
+    <widget class="QSplitter" name="splitter">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
      </property>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>qstrCaption</string>
-        </property>
-       </widget>
-      </item>
-      <item row="7" column="0">
-       <widget class="QLabel" name="label_9">
-        <property name="text">
-         <string>qstrText</string>
-        </property>
-       </widget>
-      </item>
-      <item row="6" column="1">
-       <widget class="QComboBox" name="cbLabel">
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-        <item>
-         <property name="text">
-          <string/>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QComboBox" name="cbCaption">
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-        <item>
-         <property name="text">
-          <string/>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>选择一个文件</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QComboBox" name="cbDir">
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-        <item>
-         <property name="text">
-          <string/>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>(QDir::currentPath())</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_3">
-        <property name="text">
-         <string>qstrDir</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="1">
-       <widget class="QComboBox" name="cbColorInitial">
-        <property name="editable">
-         <bool>false</bool>
-        </property>
-        <item>
-         <property name="text">
-          <string>(Qt::white)</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="label_5">
-        <property name="text">
-         <string>qcolorInitial</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="0">
-       <widget class="QLabel" name="label_7">
-        <property name="text">
-         <string>qfontInitial</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label_4">
-        <property name="text">
-         <string>qstrFilter</string>
-        </property>
-       </widget>
-      </item>
-      <item row="5" column="1">
-       <widget class="QComboBox" name="cbFontInitial">
-        <item>
-         <property name="text">
-          <string>(QFont(&quot;Times&quot;, 12))</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QComboBox" name="cbFilter">
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-        <item>
-         <property name="text">
-          <string/>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>文本文件(*.txt);;图片文件(*jpg *.gif);;所有文件(*.*)</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="4" column="0">
-       <widget class="QLabel" name="label_6">
-        <property name="text">
-         <string>qstrTitle</string>
-        </property>
-       </widget>
-      </item>
-      <item row="11" column="0">
-       <widget class="QLabel" name="label_19">
-        <property name="text">
-         <string>iStep</string>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="1">
-       <widget class="QComboBox" name="cbTitle">
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-        <item>
-         <property name="text">
-          <string/>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="6" column="0">
-       <widget class="QLabel" name="label_8">
-        <property name="text">
-         <string>qstrLabel</string>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="1">
-       <widget class="QComboBox" name="cbMax">
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-        <item>
-         <property name="text">
-          <string>2147483647</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="9" column="1">
-       <widget class="QComboBox" name="cbMin">
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-        <item>
-         <property name="text">
-          <string>-2147483647</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="17" column="0">
-       <widget class="QLabel" name="label_28">
-        <property name="text">
-         <string>iCurrent</string>
-        </property>
-       </widget>
-      </item>
-      <item row="11" column="1">
-       <widget class="QComboBox" name="cbStep">
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-        <item>
-         <property name="text">
-          <string>1</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="12" column="0">
-       <widget class="QLabel" name="label_22">
-        <property name="text">
-         <string>dValue</string>
-        </property>
-       </widget>
-      </item>
-      <item row="13" column="0">
-       <widget class="QLabel" name="label_23">
-        <property name="text">
-         <string>dMin</string>
-        </property>
-       </widget>
-      </item>
-      <item row="12" column="1">
-       <widget class="QComboBox" name="cbDoubleValue">
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-        <item>
-         <property name="text">
-          <string>0</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="15" column="0">
-       <widget class="QLabel" name="label_25">
-        <property name="text">
-         <string>iDecimals</string>
-        </property>
-       </widget>
-      </item>
-      <item row="14" column="0">
-       <widget class="QLabel" name="label_24">
-        <property name="text">
-         <string>dMax</string>
-        </property>
-       </widget>
-      </item>
-      <item row="13" column="1">
-       <widget class="QComboBox" name="cbDoubleMin">
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-        <item>
-         <property name="text">
-          <string>-2147483647</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="14" column="1">
-       <widget class="QComboBox" name="cbDoubleMax">
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-        <item>
-         <property name="text">
-          <string>2147483647</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="19" column="0">
-       <widget class="QLabel" name="label_31">
-        <property name="text">
-         <string>iButton0</string>
-        </property>
-       </widget>
-      </item>
-      <item row="21" column="0">
-       <widget class="QLabel" name="label_33">
-        <property name="text">
-         <string>iButton2</string>
-        </property>
-       </widget>
-      </item>
-      <item row="15" column="1">
-       <widget class="QComboBox" name="cbDecimals">
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-        <item>
-         <property name="text">
-          <string>1</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="20" column="0">
-       <widget class="QLabel" name="label_32">
-        <property name="text">
-         <string>iButton1</string>
-        </property>
-       </widget>
-      </item>
-      <item row="20" column="1">
-       <widget class="QComboBox" name="cbButton1">
-        <item>
-         <property name="text">
-          <string>QMessageBox::NoButton</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Ok</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Cancel</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Yes</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::No</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Abort</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Retry</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Ignore</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::YesAll</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::NoAll</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="21" column="1">
-       <widget class="QComboBox" name="cbButton2">
-        <item>
-         <property name="text">
-          <string>QMessageBox::NoButton</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Ok</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Cancel</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Yes</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::No</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Abort</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Retry</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Ignore</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::YesAll</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::NoAll</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="19" column="1">
-       <widget class="QComboBox" name="cbButton0">
-        <item>
-         <property name="text">
-          <string/>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Ok</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::NoButton</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Cancel</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Yes</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::No</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Abort</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Retry</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Ignore</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::YesAll</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::NoAll</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="23" column="1">
-       <widget class="QComboBox" name="cbButton1Text">
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-        <item>
-         <property name="text">
-          <string/>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="25" column="0">
-       <widget class="QLabel" name="label_39">
-        <property name="text">
-         <string>iDefaultButtonNumber</string>
-        </property>
-       </widget>
-      </item>
-      <item row="22" column="0">
-       <widget class="QLabel" name="label_36">
-        <property name="text">
-         <string>qstrButton0Text</string>
-        </property>
-       </widget>
-      </item>
-      <item row="23" column="0">
-       <widget class="QLabel" name="label_37">
-        <property name="text">
-         <string>qstrButton1Text</string>
-        </property>
-       </widget>
-      </item>
-      <item row="24" column="0">
-       <widget class="QLabel" name="label_38">
-        <property name="text">
-         <string>qstrButton2Text</string>
-        </property>
-       </widget>
-      </item>
-      <item row="26" column="0">
-       <widget class="QLabel" name="label_40">
-        <property name="text">
-         <string>iEscapeButtonNumber</string>
-        </property>
-       </widget>
-      </item>
-      <item row="22" column="1">
-       <widget class="QComboBox" name="cbButton0Text">
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="25" column="1">
-       <widget class="QComboBox" name="cbDefaultButtonNumber">
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-        <item>
-         <property name="text">
-          <string>0</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="24" column="1">
-       <widget class="QComboBox" name="cbButton2Text">
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-        <item>
-         <property name="text">
-          <string/>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="27" column="0">
-       <widget class="QLabel" name="label_41">
-        <property name="text">
-         <string>standardbuttonButtons</string>
-        </property>
-       </widget>
-      </item>
-      <item row="28" column="0">
-       <widget class="QLabel" name="label_42">
-        <property name="text">
-         <string>standardbuttonDefaultButton</string>
-        </property>
-       </widget>
-      </item>
-      <item row="10" column="0">
-       <widget class="QLabel" name="label_18">
-        <property name="text">
-         <string>iMax</string>
-        </property>
-       </widget>
-      </item>
-      <item row="9" column="0">
-       <widget class="QLabel" name="label_17">
-        <property name="text">
-         <string>iMin</string>
-        </property>
-       </widget>
-      </item>
-      <item row="8" column="0">
-       <widget class="QLabel" name="label_10">
-        <property name="text">
-         <string>iValue</string>
-        </property>
-       </widget>
-      </item>
-      <item row="17" column="1">
-       <widget class="QComboBox" name="cbCurrent">
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-        <item>
-         <property name="text">
-          <string>0</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="7" column="1">
-       <widget class="QComboBox" name="cbText">
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-        <item>
-         <property name="text">
-          <string/>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="8" column="1">
-       <widget class="QComboBox" name="cbValue">
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-        <item>
-         <property name="text">
-          <string>0</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="16" column="1">
-       <widget class="QListWidget" name="lwItems">
-        <item>
-         <property name="text">
-          <string>项目1</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>项目2</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>项目3</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="16" column="0">
-       <widget class="QLabel" name="label_27">
-        <property name="text">
-         <string>qstringlistItems</string>
-        </property>
-       </widget>
-      </item>
-      <item row="18" column="0">
-       <widget class="QLabel" name="label_29">
-        <property name="text">
-         <string>bEditable</string>
-        </property>
-       </widget>
-      </item>
-      <item row="18" column="1">
-       <widget class="QComboBox" name="cbEditable">
-        <item>
-         <property name="text">
-          <string>true</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>false</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="26" column="1">
-       <widget class="QComboBox" name="cbEscapeButtonNumber">
-        <property name="editable">
-         <bool>true</bool>
-        </property>
-        <item>
-         <property name="text">
-          <string>-1</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="27" column="1">
-       <widget class="QComboBox" name="cbButtons">
-        <item>
-         <property name="text">
-          <string>QMessageBox::Ok</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Ok | QMessageBox::Cancel</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Yes | QMessageBox::No</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item row="28" column="1">
-       <widget class="QComboBox" name="cbDefaultButton">
-        <item>
-         <property name="text">
-          <string>QMessageBox::NoButton</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Ok</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Save</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::SaveAll</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Open</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Yes</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::YesToAll</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::No</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::NoToAll</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Abort</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Retry</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Ignore</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Close</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Cancel</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Discard</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Help</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Apply</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::Reset</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>QMessageBox::RestoreDefaults</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QGroupBox" name="groupBox_2">
-     <property name="title">
-      <string>处理</string>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <item>
-       <widget class="QScrollArea" name="scrollArea">
-        <property name="widgetResizable">
-         <bool>true</bool>
-        </property>
-        <widget class="QWidget" name="scrollAreaWidgetContents">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>1004</width>
-           <height>1491</height>
-          </rect>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="title">
+       <string>变量</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>qstrCaption</string>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout">
-          <item>
-           <widget class="QGroupBox" name="groupBox_3">
-            <property name="title">
-             <string/>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_2">
-             <item row="0" column="0" colspan="2">
-              <widget class="QPushButton" name="pbGetOpenFileName">
-               <property name="text">
-                <string>QString result = QFileDialog::getOpenFileName(Q_NULLPTR, qstrCaption, qstrDir, qstrFilter, Q_NULLPTR, QFileDialog::Options());</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label">
-               <property name="text">
-                <string>result</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLineEdit" name="leGetOpenFileNameResult"/>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QGroupBox" name="groupBox_4">
-            <property name="title">
-             <string/>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_3">
-             <item row="0" column="0" colspan="2">
-              <widget class="QPushButton" name="pbGetOpenFileNames">
-               <property name="text">
-                <string>QStringList result = QFileDialog::getOpenFileNames(Q_NULLPTR, qstrCaption, qstrDir, qstrFilter, Q_NULLPTR, QFileDialog::Options());</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_11">
-               <property name="text">
-                <string>result</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QListWidget" name="lwGetOpenFileNamesResult"/>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QGroupBox" name="groupBox_5">
-            <property name="title">
-             <string/>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_4">
-             <item row="0" column="0" colspan="2">
-              <widget class="QPushButton" name="pbGetExistingDirectory">
-               <property name="text">
-                <string>QString result = QFileDialog::getExistingDirectory(Q_NULLPTR, qstrCaption, qstrDir, QFileDialog::ShowDirsOnly);</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_12">
-               <property name="text">
-                <string>result</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLineEdit" name="leGetExistingDirectoryResult"/>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QGroupBox" name="groupBox_6">
-            <property name="title">
-             <string/>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_5">
-             <item row="0" column="0" colspan="2">
-              <widget class="QPushButton" name="pbGetSaveFileName">
-               <property name="text">
-                <string>QString result = QFileDialog::getSaveFileName(Q_NULLPTR, qstrCaption, qstrDir, qstrFilter, Q_NULLPTR, QFileDialog::Options);</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_13">
-               <property name="text">
-                <string>result</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLineEdit" name="leGetSaveFileNameResult"/>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QGroupBox" name="groupBox_7">
-            <property name="title">
-             <string/>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_6">
-             <item row="0" column="0" colspan="2">
-              <widget class="QPushButton" name="pbGetColor">
-               <property name="text">
-                <string>QColor result = QColorDialog::getColor(qcolorInitial, Q_NULLPTR, qstrTitle, QColorDialog::ColorDialogOptions());</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_14">
-               <property name="text">
-                <string>result</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLineEdit" name="leGetColorResult"/>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QGroupBox" name="groupBox_8">
-            <property name="title">
-             <string/>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_7">
-             <item row="0" column="0" colspan="2">
-              <widget class="QPushButton" name="pbGetFont">
-               <property name="text">
-                <string>QFont result = QFontDialog::getFont(&amp;&amp;ok, qfontInitial, Q_NULLPTR, qstrTitle, QFontDialog::FontDialogOptions());</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_15">
-               <property name="text">
-                <string>result</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLineEdit" name="leGetFontResult"/>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QGroupBox" name="groupBox_9">
-            <property name="title">
-             <string/>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_8">
-             <item row="0" column="0" colspan="2">
-              <widget class="QPushButton" name="pbGetText">
-               <property name="text">
-                <string>QString result = QInputDialog::getText(this, qstrTitle, qstrLabel, QLineEdit::Normal, qstrText, &amp;&amp;ok, Qt::WindowFlags(), Qt::ImhNone);</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_16">
-               <property name="text">
-                <string>result</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLineEdit" name="leGetTextResult"/>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QGroupBox" name="groupBox_10">
-            <property name="title">
-             <string/>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_9">
-             <item row="0" column="0" colspan="2">
-              <widget class="QPushButton" name="pbGetInt">
-               <property name="text">
-                <string>int result = QInputDialog::getInt(this, qstrTitle, qstrLabel, iValue, iMin, iMax, iStep, &amp;&amp;ok, Qt::WindowFlags());</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_20">
-               <property name="text">
-                <string>result</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLineEdit" name="leGetIntResult"/>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QGroupBox" name="groupBox_11">
-            <property name="title">
-             <string/>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_10">
-             <item row="0" column="0" colspan="2">
-              <widget class="QPushButton" name="pbGetDouble">
-               <property name="text">
-                <string>double result = QInputDialog::getDouble(this, qstrTitle, qstrLabel, dValue, dMin, dMax, iDecimals);</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_21">
-               <property name="text">
-                <string>result</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLineEdit" name="leGetDoubleResult"/>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QGroupBox" name="groupBox_12">
-            <property name="title">
-             <string/>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_11">
-             <item row="0" column="0" colspan="2">
-              <widget class="QPushButton" name="pbGetItem">
-               <property name="text">
-                <string>QString result = QInputDialog::getItem(this, qstrTitle, qstrLabel, qstringlistItems, iCurrent, bEditable, &amp;&amp;ok, Qt::WindowFlags(), Qt::ImhNone);</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_26">
-               <property name="text">
-                <string>result</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLineEdit" name="leGetItemResult"/>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QGroupBox" name="groupBox_13">
-            <property name="title">
-             <string/>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_12">
-             <item row="5" column="0">
-              <widget class="QLabel" name="label_35">
-               <property name="text">
-                <string>result</string>
-               </property>
-              </widget>
-             </item>
-             <item row="5" column="1">
-              <widget class="QLineEdit" name="leInformationStandardButtonResult"/>
-             </item>
-             <item row="4" column="0" colspan="2">
-              <widget class="QPushButton" name="pbInformationStandardButton">
-               <property name="text">
-                <string>QMessageBox::StandardButton result =  QMessageBox::information(this, qstrTitle, qstrText, standardbuttonButtons, standardbuttonDefaultButton);</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0" colspan="2">
-              <widget class="QPushButton" name="pbInformationQString">
-               <property name="text">
-                <string>int result = QMessageBox::information(this, qstrTitle, qstrText, qstrButton0Text, qstrButton1Text, qstrButton2Text, iDefaultButtonNumber, iEscapeButtonNumber);</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="1">
-              <widget class="QLineEdit" name="leInformationQStringResult"/>
-             </item>
-             <item row="3" column="0">
-              <widget class="QLabel" name="label_34">
-               <property name="text">
-                <string>result</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="0" colspan="2">
-              <widget class="QPushButton" name="pbInformation">
-               <property name="text">
-                <string>int result = QMessageBox::information(this, qstrTitle, qstrText, iButton0, iButton1, iButton2);</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_30">
-               <property name="text">
-                <string>result</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLineEdit" name="leInformationResult"/>
-             </item>
-             <item row="6" column="0" colspan="2">
-              <widget class="QLabel" name="label_43">
-               <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;同理：&lt;/p&gt;&lt;p&gt;QMessageBox::warning&lt;/p&gt;&lt;p&gt;QMessageBox::critical&lt;/p&gt;&lt;p&gt;QMessageBox::question  注意standardbuttonButtons默认值不是QMessageBox::Ok，而是QMessageBox::Yes | QMessageBox::No&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QGroupBox" name="groupBox_14">
-            <property name="title">
-             <string/>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_13">
-             <item row="0" column="0">
-              <widget class="QPushButton" name="pbAbout">
-               <property name="text">
-                <string>void QMessage::about(this, qstrTitle, qstrText);</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QGroupBox" name="groupBox_15">
-            <property name="title">
-             <string/>
-            </property>
-            <layout class="QGridLayout" name="gridLayout_14">
-             <item row="0" column="0">
-              <widget class="QPushButton" name="pbAboutQt">
-               <property name="text">
-                <string>void QMessageBox::aboutQt(this, qstrTitle);</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <spacer name="verticalSpacer">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>41</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
         </widget>
-       </widget>
-      </item>
-     </layout>
+       </item>
+       <item row="7" column="0">
+        <widget class="QLabel" name="label_9">
+         <property name="text">
+          <string>qstrText</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <widget class="QComboBox" name="cbLabel">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QComboBox" name="cbCaption">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>选择一个文件</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QComboBox" name="cbDir">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>(QDir::currentPath())</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>qstrDir</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QComboBox" name="cbColorInitial">
+         <property name="editable">
+          <bool>false</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>(Qt::white)</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>qcolorInitial</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="label_7">
+         <property name="text">
+          <string>qfontInitial</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>qstrFilter</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QComboBox" name="cbFontInitial">
+         <item>
+          <property name="text">
+           <string>(QFont(&quot;Times&quot;, 12))</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QComboBox" name="cbFilter">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>文本文件(*.txt);;图片文件(*jpg *.gif);;所有文件(*.*)</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="label_6">
+         <property name="text">
+          <string>qstrTitle</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="0">
+        <widget class="QLabel" name="label_19">
+         <property name="text">
+          <string>iStep</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1">
+        <widget class="QComboBox" name="cbTitle">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QLabel" name="label_8">
+         <property name="text">
+          <string>qstrLabel</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="1">
+        <widget class="QComboBox" name="cbMax">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>2147483647</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="9" column="1">
+        <widget class="QComboBox" name="cbMin">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>-2147483647</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="17" column="0">
+        <widget class="QLabel" name="label_28">
+         <property name="text">
+          <string>iCurrent</string>
+         </property>
+        </widget>
+       </item>
+       <item row="11" column="1">
+        <widget class="QComboBox" name="cbStep">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>1</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="12" column="0">
+        <widget class="QLabel" name="label_22">
+         <property name="text">
+          <string>dValue</string>
+         </property>
+        </widget>
+       </item>
+       <item row="13" column="0">
+        <widget class="QLabel" name="label_23">
+         <property name="text">
+          <string>dMin</string>
+         </property>
+        </widget>
+       </item>
+       <item row="12" column="1">
+        <widget class="QComboBox" name="cbDoubleValue">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>0</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="15" column="0">
+        <widget class="QLabel" name="label_25">
+         <property name="text">
+          <string>iDecimals</string>
+         </property>
+        </widget>
+       </item>
+       <item row="14" column="0">
+        <widget class="QLabel" name="label_24">
+         <property name="text">
+          <string>dMax</string>
+         </property>
+        </widget>
+       </item>
+       <item row="13" column="1">
+        <widget class="QComboBox" name="cbDoubleMin">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>-2147483647</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="14" column="1">
+        <widget class="QComboBox" name="cbDoubleMax">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>2147483647</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="19" column="0">
+        <widget class="QLabel" name="label_31">
+         <property name="text">
+          <string>iButton0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="21" column="0">
+        <widget class="QLabel" name="label_33">
+         <property name="text">
+          <string>iButton2</string>
+         </property>
+        </widget>
+       </item>
+       <item row="15" column="1">
+        <widget class="QComboBox" name="cbDecimals">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>1</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="20" column="0">
+        <widget class="QLabel" name="label_32">
+         <property name="text">
+          <string>iButton1</string>
+         </property>
+        </widget>
+       </item>
+       <item row="20" column="1">
+        <widget class="QComboBox" name="cbButton1">
+         <item>
+          <property name="text">
+           <string>QMessageBox::NoButton</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Ok</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Cancel</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Yes</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::No</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Abort</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Retry</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Ignore</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::YesAll</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::NoAll</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="21" column="1">
+        <widget class="QComboBox" name="cbButton2">
+         <item>
+          <property name="text">
+           <string>QMessageBox::NoButton</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Ok</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Cancel</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Yes</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::No</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Abort</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Retry</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Ignore</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::YesAll</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::NoAll</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="19" column="1">
+        <widget class="QComboBox" name="cbButton0">
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Ok</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::NoButton</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Cancel</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Yes</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::No</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Abort</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Retry</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Ignore</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::YesAll</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::NoAll</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="23" column="1">
+        <widget class="QComboBox" name="cbButton1Text">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="25" column="0">
+        <widget class="QLabel" name="label_39">
+         <property name="text">
+          <string>iDefaultButtonNumber</string>
+         </property>
+        </widget>
+       </item>
+       <item row="22" column="0">
+        <widget class="QLabel" name="label_36">
+         <property name="text">
+          <string>qstrButton0Text</string>
+         </property>
+        </widget>
+       </item>
+       <item row="23" column="0">
+        <widget class="QLabel" name="label_37">
+         <property name="text">
+          <string>qstrButton1Text</string>
+         </property>
+        </widget>
+       </item>
+       <item row="24" column="0">
+        <widget class="QLabel" name="label_38">
+         <property name="text">
+          <string>qstrButton2Text</string>
+         </property>
+        </widget>
+       </item>
+       <item row="26" column="0">
+        <widget class="QLabel" name="label_40">
+         <property name="text">
+          <string>iEscapeButtonNumber</string>
+         </property>
+        </widget>
+       </item>
+       <item row="22" column="1">
+        <widget class="QComboBox" name="cbButton0Text">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="25" column="1">
+        <widget class="QComboBox" name="cbDefaultButtonNumber">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>0</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="24" column="1">
+        <widget class="QComboBox" name="cbButton2Text">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="27" column="0">
+        <widget class="QLabel" name="label_41">
+         <property name="text">
+          <string>standardbuttonButtons</string>
+         </property>
+        </widget>
+       </item>
+       <item row="28" column="0">
+        <widget class="QLabel" name="label_42">
+         <property name="text">
+          <string>standardbuttonDefaultButton</string>
+         </property>
+        </widget>
+       </item>
+       <item row="10" column="0">
+        <widget class="QLabel" name="label_18">
+         <property name="text">
+          <string>iMax</string>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="0">
+        <widget class="QLabel" name="label_17">
+         <property name="text">
+          <string>iMin</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QLabel" name="label_10">
+         <property name="text">
+          <string>iValue</string>
+         </property>
+        </widget>
+       </item>
+       <item row="17" column="1">
+        <widget class="QComboBox" name="cbCurrent">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>0</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="7" column="1">
+        <widget class="QComboBox" name="cbText">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string/>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="8" column="1">
+        <widget class="QComboBox" name="cbValue">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>0</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="16" column="1">
+        <widget class="QListWidget" name="lwItems">
+         <item>
+          <property name="text">
+           <string>项目1</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>项目2</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>项目3</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="16" column="0">
+        <widget class="QLabel" name="label_27">
+         <property name="text">
+          <string>qstringlistItems</string>
+         </property>
+        </widget>
+       </item>
+       <item row="18" column="0">
+        <widget class="QLabel" name="label_29">
+         <property name="text">
+          <string>bEditable</string>
+         </property>
+        </widget>
+       </item>
+       <item row="18" column="1">
+        <widget class="QComboBox" name="cbEditable">
+         <item>
+          <property name="text">
+           <string>true</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>false</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="26" column="1">
+        <widget class="QComboBox" name="cbEscapeButtonNumber">
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <item>
+          <property name="text">
+           <string>-1</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="27" column="1">
+        <widget class="QComboBox" name="cbButtons">
+         <item>
+          <property name="text">
+           <string>QMessageBox::Ok</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Ok | QMessageBox::Cancel</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Yes | QMessageBox::No</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="28" column="1">
+        <widget class="QComboBox" name="cbDefaultButton">
+         <item>
+          <property name="text">
+           <string>QMessageBox::NoButton</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Ok</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Save</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::SaveAll</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Open</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Yes</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::YesToAll</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::No</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::NoToAll</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Abort</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Retry</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Ignore</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Close</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Cancel</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Discard</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Help</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Apply</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::Reset</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>QMessageBox::RestoreDefaults</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="title">
+       <string>处理</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QScrollArea" name="scrollArea">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>1004</width>
+            <height>1491</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <widget class="QGroupBox" name="groupBox_3">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_2">
+              <item row="0" column="0" colspan="2">
+               <widget class="QPushButton" name="pbGetOpenFileName">
+                <property name="text">
+                 <string>QString result = QFileDialog::getOpenFileName(Q_NULLPTR, qstrCaption, qstrDir, qstrFilter, Q_NULLPTR, QFileDialog::Options());</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label">
+                <property name="text">
+                 <string>result</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="leGetOpenFileNameResult"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_4">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_3">
+              <item row="0" column="0" colspan="2">
+               <widget class="QPushButton" name="pbGetOpenFileNames">
+                <property name="text">
+                 <string>QStringList result = QFileDialog::getOpenFileNames(Q_NULLPTR, qstrCaption, qstrDir, qstrFilter, Q_NULLPTR, QFileDialog::Options());</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_11">
+                <property name="text">
+                 <string>result</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QListWidget" name="lwGetOpenFileNamesResult"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_5">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_4">
+              <item row="0" column="0" colspan="2">
+               <widget class="QPushButton" name="pbGetExistingDirectory">
+                <property name="text">
+                 <string>QString result = QFileDialog::getExistingDirectory(Q_NULLPTR, qstrCaption, qstrDir, QFileDialog::ShowDirsOnly);</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_12">
+                <property name="text">
+                 <string>result</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="leGetExistingDirectoryResult"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_6">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_5">
+              <item row="0" column="0" colspan="2">
+               <widget class="QPushButton" name="pbGetSaveFileName">
+                <property name="text">
+                 <string>QString result = QFileDialog::getSaveFileName(Q_NULLPTR, qstrCaption, qstrDir, qstrFilter, Q_NULLPTR, QFileDialog::Options);</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_13">
+                <property name="text">
+                 <string>result</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="leGetSaveFileNameResult"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_7">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_6">
+              <item row="0" column="0" colspan="2">
+               <widget class="QPushButton" name="pbGetColor">
+                <property name="text">
+                 <string>QColor result = QColorDialog::getColor(qcolorInitial, Q_NULLPTR, qstrTitle, QColorDialog::ColorDialogOptions());</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_14">
+                <property name="text">
+                 <string>result</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="leGetColorResult"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_8">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_7">
+              <item row="0" column="0" colspan="2">
+               <widget class="QPushButton" name="pbGetFont">
+                <property name="text">
+                 <string>QFont result = QFontDialog::getFont(&amp;&amp;ok, qfontInitial, Q_NULLPTR, qstrTitle, QFontDialog::FontDialogOptions());</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_15">
+                <property name="text">
+                 <string>result</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="leGetFontResult"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_9">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_8">
+              <item row="0" column="0" colspan="2">
+               <widget class="QPushButton" name="pbGetText">
+                <property name="text">
+                 <string>QString result = QInputDialog::getText(this, qstrTitle, qstrLabel, QLineEdit::Normal, qstrText, &amp;&amp;ok, Qt::WindowFlags(), Qt::ImhNone);</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_16">
+                <property name="text">
+                 <string>result</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="leGetTextResult"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_10">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_9">
+              <item row="0" column="0" colspan="2">
+               <widget class="QPushButton" name="pbGetInt">
+                <property name="text">
+                 <string>int result = QInputDialog::getInt(this, qstrTitle, qstrLabel, iValue, iMin, iMax, iStep, &amp;&amp;ok, Qt::WindowFlags());</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_20">
+                <property name="text">
+                 <string>result</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="leGetIntResult"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_11">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_10">
+              <item row="0" column="0" colspan="2">
+               <widget class="QPushButton" name="pbGetDouble">
+                <property name="text">
+                 <string>double result = QInputDialog::getDouble(this, qstrTitle, qstrLabel, dValue, dMin, dMax, iDecimals);</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_21">
+                <property name="text">
+                 <string>result</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="leGetDoubleResult"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_12">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_11">
+              <item row="0" column="0" colspan="2">
+               <widget class="QPushButton" name="pbGetItem">
+                <property name="text">
+                 <string>QString result = QInputDialog::getItem(this, qstrTitle, qstrLabel, qstringlistItems, iCurrent, bEditable, &amp;&amp;ok, Qt::WindowFlags(), Qt::ImhNone);</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_26">
+                <property name="text">
+                 <string>result</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="leGetItemResult"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_13">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_12">
+              <item row="5" column="0">
+               <widget class="QLabel" name="label_35">
+                <property name="text">
+                 <string>result</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
+               <widget class="QLineEdit" name="leInformationStandardButtonResult"/>
+              </item>
+              <item row="4" column="0" colspan="2">
+               <widget class="QPushButton" name="pbInformationStandardButton">
+                <property name="text">
+                 <string>QMessageBox::StandardButton result =  QMessageBox::information(this, qstrTitle, qstrText, standardbuttonButtons, standardbuttonDefaultButton);</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QPushButton" name="pbInformationQString">
+                <property name="text">
+                 <string>int result = QMessageBox::information(this, qstrTitle, qstrText, qstrButton0Text, qstrButton1Text, qstrButton2Text, iDefaultButtonNumber, iEscapeButtonNumber);</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLineEdit" name="leInformationQStringResult"/>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label_34">
+                <property name="text">
+                 <string>result</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0" colspan="2">
+               <widget class="QPushButton" name="pbInformation">
+                <property name="text">
+                 <string>int result = QMessageBox::information(this, qstrTitle, qstrText, iButton0, iButton1, iButton2);</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_30">
+                <property name="text">
+                 <string>result</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="leInformationResult"/>
+              </item>
+              <item row="6" column="0" colspan="2">
+               <widget class="QLabel" name="label_43">
+                <property name="text">
+                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;同理：&lt;/p&gt;&lt;p&gt;QMessageBox::warning&lt;/p&gt;&lt;p&gt;QMessageBox::critical&lt;/p&gt;&lt;p&gt;QMessageBox::question  注意standardbuttonButtons默认值不是QMessageBox::Ok，而是QMessageBox::Yes | QMessageBox::No&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_14">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_13">
+              <item row="0" column="0">
+               <widget class="QPushButton" name="pbAbout">
+                <property name="text">
+                 <string>void QMessage::about(this, qstrTitle, qstrText);</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_15">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_14">
+              <item row="0" column="0">
+               <widget class="QPushButton" name="pbAboutQt">
+                <property name="text">
+                 <string>void QMessageBox::aboutQt(this, qstrTitle);</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>41</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </widget>
    </item>
   </layout>

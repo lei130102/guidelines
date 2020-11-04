@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>dlg_iterator</class>
+ <widget class="QDialog" name="dlg_iterator">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1338</width>
+    <height>838</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QSplitter" name="splitter">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="title">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="title">
+       <string/>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QScrollArea" name="scrollArea">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>-2105</y>
+            <width>1039</width>
+            <height>3101</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <widget class="QGroupBox" name="groupBox_3">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label">
+                <property name="text">
+                 <string>//简单地说，迭代器就是迭代器类类型和指针类型
+
+//迭代器是容器提供给算法的接口，算法不在乎他所处理的元素来自何种容器，但是在意传给他作为参数的迭代器的类型
+
+//迭代器类型：
+//输入迭代器(input iterator)(input_iterator_tag)
+//输出迭代器(output iterator)(output_iterator_tag)
+//前向迭代器(forward iterator)(forward_iterator_tag)
+//双向迭代器(bidirectional iterator)(bidirectional_iterator_tag)
+//随机访问迭代器(random-access iterator)(random_access_iterator_tag)
+namespace std
+{
+    struct input_iterator_tag
+    {};
+
+    struct output_iterator_tag
+    {};
+
+    struct forward_iterator_tag : input_iterator_tag
+    {};
+
+    struct bidirectional_iterator_tag : forward_iterator_tag
+    {};
+
+    struct random_access_iterator_tag : bidirectional_iterator_tag
+    {};
+}</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_4">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_2">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>//定义使用迭代器的算法1
+template&lt;typename Iter&gt;
+void my_swap(Iter a, Iter b)
+{
+    auto tmp = *a;  //使用auto，但不好，没有明确迭代器参数所指向值的类型
+    *a = *b;
+    *b = tmp;
+}
+
+template&lt;typename Iter&gt;
+void my_swap(Iter a, Iter b)
+{
+    typename Iter::value_type tmp = *a;  //使用typename Iter::value_type，(这要求迭代器类型必须定义value_type类型)，但仍有限制，导致Iter不能是指针
+    *a = *b;
+    *b = tmp;
+}
+
+#include &lt;iterator&gt;
+template&lt;typename Iter&gt;
+void my_swap(Iter a, Iter b)
+{
+    typename std::iterator_traits&lt;Iter&gt;::value_type tmp = *a;  //使用typename std::iterator_traits&lt;Iter&gt;::value_type最好
+    *a = *b;
+    *b = tmp;
+}
+
+//iterator_traits模板定义如下：
+template&lt;class Iterator&gt;
+struct iterator_traits
+{
+    typedef typename Iterator::difference_type     difference_type;
+    typedef typename Iterator::value_type          value_type;
+    typedef typename Iterator::pointer             pointer;
+    typedef typename Iterator::reference           reference;
+    typedef typename Iterator::iterator_category   iterator_category;
+};
+//(这要求使用iterator_traits模板的迭代器类型必须定义difference_type、value_type、pointer、reference和iterator_category类型)
+//(对于输出迭代器，除了iterator_category，其他别名都可以定义为void，这是因为输出迭代器指向对象的目的地址而不是对象)
+
+//iterator_traits模板偏特化类型T*和const T*的定义
+template&lt;class T&gt;
+struct iterator_traits&lt;T*&gt;
+{
+    typedef ptrdiff_t                   difference_type;
+    typedef T                           value_type;
+    typedef T*                          pointer;
+    typedef T&amp;                          reference;
+    typedef random_access_iterator_tag  iterator_category;
+};
+
+template&lt;class T&gt;
+struct iterator_traits&lt;const T*&gt;
+{
+    typedef ptrdiff_t                   difference_type;
+    typedef T                           value_type;
+    typedef const T*                    pointer;
+    typedef const T&amp;                    reference;
+    typedef random_access_iterator_tag  iterator_category;
+};
+
+
+
+//定义使用迭代器的算法2
+template&lt;typename Iter&gt;
+inline void func(Iter begin, Iter end)
+{
+    func(begin, end, std::iterator_traits&lt;Iter&gt;::iterator_category());
+}
+
+template&lt;typename BiIterator&gt;
+void func(BiIterator begin, BiIterator end, std::bidirectional_iterator_tag)
+{
+    //...
+}
+
+template&lt;typename RaIterator&gt;
+void func(RaIterator begin, RaIterator end, std::random_access_iterator_tag)
+{
+    //...
+}
+
+//定义使用迭代器的算法3
+//尽量使用迭代器相关辅助函数，这样写出的算法能适应更多类型的迭代器(容忍随机访问迭代器使用辅助函数带来的性能降低)
+
+//void advance(InputIterator&amp; pos, Dist n)
+//令名为pos的输入迭代器前进(或后退)n个元素
+//对于随机访问迭代器和双向迭代器而言，n可为负值，表示向后退
+//Dist通常是整数类型，要有&lt; ++ --等操作，还要和0作比较
+//对于随机访问迭代器，则调用pos+=n，因此具有常数复杂度；对于双向迭代器，则调用++pos(或--pos)n次，因此具有线性复杂度
+
+//ForwardIterator next(ForwardIterator pos)
+//ForwardIterator next(ForwardIterator pos, Dist n)
+//令名为pos的前向迭代器前进1或者n个位置
+//对于随机访问迭代器和双向迭代器而言，n可为负值，表示向后退
+//Dist是类型std::iterator_traits&lt;BidirectionalIterator&gt;::difference_type
+
+//BidirectionalIterator prev(BidirectionalIterator pos)
+//BidirectionalIterator prev(BidirectionalIterator pos, Dist n)
+//令名为pos的前向迭代器后退1或n个位置
+//对于随机访问迭代器和双向迭代器而言，n可为负值，表示向前进
+//Dist是类型std::iterator_traits&lt;BidirectionalIterator&gt;::difference_type
+
+//Dist distance(InputIterator pos1, InputIterator pos2)
+//返回两个输入迭代器的距离
+//Dist是类型std::iterator_traits&lt;InputIterator&gt;::difference_type
+//对于随机访问迭代器，则调用pos2-pos1，因此具有常数复杂度；对于其他迭代器，则不断递增pos1，直到抵达pos2为止，因此具有线性复杂度
+
+//void iter_swap(ForwardIterator1 pos1, ForwardIterator2 pos2)
+//交换迭代器pos1和pos2所指的值    (注意，是迭代器所指向的值)
+//迭代器的类型不必相同，但是其所指向的两个值必须可以相互赋值</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_6">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_4">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_4">
+                <property name="text">
+                 <string>//std::vector、std::array和std::string的迭代器通常被实现为寻常指针而不是class或者struct，而C++并不允许
+//修改任何基础类型的(包括指针)的临时值，但对于class和struct可以
+std::vector&lt;int&gt; v;
+std::sort(std::next(v.begin()), v.end());
+//或者
+std::vector&lt;int&gt; v;
+std::vector&lt;int&gt;::iterator begin = v.begin();
+std::sort(++begin, v.end());</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_5">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_3">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_3">
+                <property name="text">
+                 <string>//不同类型的迭代器需要为迭代器类定义不同的成员函数集，因为迭代器类型具有叠加性，所以成员函数集也具有叠加性
+
+//1.输入迭代器     容器：istream
+//iter(iter const&amp;）(复制构造函数)
+//*iter         (读取实际元素)
+//iter-&gt;member  (读取实际元素的成员，如果有的话)
+//++iter
+//iter++        (不一定得返回什么东西，不过通常会返回旧位置)
+//iter1 == iter2
+//iter1 != iter2
+
+//2.输出迭代器     容器：ostream、inserter
+//iter(iter const&amp;）(复制构造函数)
+//*iter = val
+//++iter
+//iter++
+
+//3.前向迭代器      容器：forward list、unordered containers(有一部分是双向迭代器)
+//输入迭代器的
+//iter()        (默认构造函数)
+//iter1 = iter2
+
+//4.双向迭代器       容器：list、set、multiset、map、multimap
+//前向迭代器的
+//--iter
+//iter--
+
+//5.随机访问迭代器     容器：array、vector、deque、string、C-Style array
+//双向迭代器的
+//iter[n]
+//iter+=n
+//iter-=n
+//iter+n
+//n+iter
+//iter-n
+//iter1-iter2
+//iter1 &lt; iter2
+//iter1 &gt; iter2
+//iter1 &lt;= iter2
+//iter1 &gt;= iter2</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_7">
+             <property name="title">
+              <string>前向迭代器 numeric_range numeric_iterator</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_5">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_5">
+                <property name="text">
+                 <string>    numeric_range&lt;double&gt; range{1.5, 0.5, 5};
+    auto first = range.begin();
+    auto last = range.end();
+    std::copy(first, last, std::ostream_iterator&lt;double&gt;(std::cout, &quot; &quot;));
+    std::cout &lt;&lt; &quot;\n&quot;;</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QPushButton" name="pbNumericRangeCopy">
+                <property name="text">
+                 <string>执行</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_6">
+                <property name="text">
+                 <string>    numeric_range&lt;double&gt; range{1.5, 0.5, 5};
+    std::cout &lt;&lt; &quot;Sum = &quot; &lt;&lt; std::accumulate(std::begin(range), std::end(range), 0.0) &lt;&lt; &quot;\n&quot;;</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QPushButton" name="pbNumericRangeAccumulate">
+                <property name="text">
+                 <string>执行</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="label_7">
+                <property name="text">
+                 <string>    numeric_range&lt;double&gt; range{1.5, 0.5, 5};
+    for(auto n : range)
+    {
+        std::cout &lt;&lt; n &lt;&lt; &quot; &quot;;
+    }
+    std::cout &lt;&lt; &quot;\n&quot;;</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QPushButton" name="pbNumericRangeFor">
+                <property name="text">
+                 <string>执行</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>230</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
