@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1338</width>
-    <height>838</height>
+    <width>1408</width>
+    <height>807</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -38,9 +38,9 @@
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>-2105</y>
-            <width>1039</width>
-            <height>3101</height>
+            <y>-6066</y>
+            <width>1122</width>
+            <height>7252</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -220,14 +220,17 @@ void func(RaIterator begin, RaIterator end, std::random_access_iterator_tag)
               <item row="0" column="0">
                <widget class="QLabel" name="label_4">
                 <property name="text">
-                 <string>//std::vector、std::array和std::string的迭代器通常被实现为寻常指针而不是class或者struct，而C++并不允许
-//修改任何基础类型的(包括指针)的临时值，但对于class和struct可以
-std::vector&lt;int&gt; v;
-std::sort(std::next(v.begin()), v.end());
-//或者
-std::vector&lt;int&gt; v;
-std::vector&lt;int&gt;::iterator begin = v.begin();
-std::sort(++begin, v.end());</string>
+                 <string>    std::vector&lt;int&gt; v{5, 4, 3, 2, 1};
+    std::sort(++v.begin(), v.end());
+
+    std::copy(v.begin(), v.end(), std::ostream_iterator&lt;int&gt;(std::cout, &quot; &quot;));</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QPushButton" name="pbVectorArrayStringIterator">
+                <property name="text">
+                 <string>执行</string>
                 </property>
                </widget>
               </item>
@@ -342,6 +345,513 @@ std::sort(++begin, v.end());</string>
               </item>
               <item row="5" column="0">
                <widget class="QPushButton" name="pbNumericRangeFor">
+                <property name="text">
+                 <string>执行</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_8">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <item>
+               <widget class="QLabel" name="label_8">
+                <property name="text">
+                 <string>//迭代器适配器(iterator adapter):
+//反向迭代器(reverse iterator)
+//插入迭代器(insert iterator)
+//流迭代器(stream iterator)
+//移动迭代器(move iterator)
+
+//1.
+//反向迭代器(reverse iterator)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_9">
+                <property name="text">
+                 <string>std::vector&lt;int&gt; v {1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+std::copy(v.begin(), v.end(), std::ostream_iterator&lt;int&gt;(std::cout, &quot; &quot;));
+std::cout &lt;&lt; &quot;\n&quot;;
+std::copy(v.rbegin(), v.rend(), std::ostream_iterator&lt;int&gt;(std::cout, &quot; &quot;));
+std::cout &lt;&lt; &quot;\n&quot;;</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pbReverseIterator">
+                <property name="text">
+                 <string>执行</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_10">
+                <property name="text">
+                 <string>std::vector&lt;int&gt;::iterator pos = std::find(v.begin(), v.end(), 2);
+std::cout &lt;&lt; &quot;pos:&quot; &lt;&lt; *pos &lt;&lt; &quot;\n&quot;;
+//iterator转reverse_iterator
+std::vector&lt;int&gt;::reverse_iterator pos_left(pos);//注意reverse_iterator的构造方式
+std::cout &lt;&lt; &quot;pos_left:&quot; &lt;&lt; *pos_left &lt;&lt; &quot;\n&quot;;</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pbIteratorToReverseIterator">
+                <property name="text">
+                 <string>执行</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_11">
+                <property name="text">
+                 <string>std::vector&lt;int&gt;::reverse_iterator pos = std::find(v.rbegin(), v.rend(), 2);//注意参数类型决定返回值类型
+std::cout &lt;&lt; &quot;pos:&quot; &lt;&lt; *pos &lt;&lt; &quot;\n&quot;;
+//reverse_iterator转iterator
+std::vector&lt;int&gt;::iterator pos_right(pos.base());
+std::cout &lt;&lt; &quot;pos_right:&quot; &lt;&lt; *pos_right &lt;&lt; &quot;\n&quot;;</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pbReverseIteratorToIterator">
+                <property name="text">
+                 <string>执行</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_12">
+                <property name="text">
+                 <string>//iterator、const_iterator、reverse_iterator、const_reverse_iterator相互转换
+
+//1.隐式转换
+//iterator----------------------------&gt;const_iterator
+//   |
+//   |
+//   +---&gt;reverse_iterator------------&gt;const_reverse_iterator
+
+//2.base()转换
+//reverse_iterator::base() -----&gt; iterator
+//const_reverse_iterator::base()  ------&gt; const_iterator
+
+//3.const_iterator通过distance和advance函数 ------&gt; iterator
+//(对于随机访问迭代器，是常数时间的操作；对于双向迭代器，是线性时间的操作)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_14">
+                <property name="text">
+                 <string>//2.
+//插入迭代器 (insert iterator)
+//(所有插入迭代器都是输出迭代器(output iterator)，与输出迭代器不同的是，&quot;*pos = value&quot;也可以写为&quot;pos = value&quot;，因为operator*是无操作(另外，operator++()和operator++(int)也是无操作))
+//(输出迭代器的常用方式是&quot;*iter++ = value&quot;，插入迭代器的另一种常用方式是&quot;iter = value&quot;)
+
+//std::back_inserter_iterator
+//对应：push_back(value)
+//适用容器：std::vector std::deque std::list std::string
+//辅助函数：std::back_inserter(container)
+
+//std::front_inserter_iterator
+//对应：push_front(value)
+//适用容器：std::deque std::list
+//辅助函数：std::front_inserter(container)
+
+//std::inserter_iterator
+//对应：insert(pos, value)
+//适用容器：除了std::array和std:forward_list
+//辅助函数：std::inserter(container, pos)</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_13">
+                <property name="text">
+                 <string>    std::vector&lt;int&gt; v;
+
+    std::back_insert_iterator&lt;std::vector&lt;int&gt;&gt; bii(v);
+    //调用作为输出迭代器的接口
+    *bii++ = 1;
+    *bii++ = 2;
+    *bii++ = 3;
+    //插入迭代器的operator*和operator++、operator++(int)都是无操作，所以可以
+    bii = 4;
+    bii = 5;
+    bii = 6;
+
+    std::copy(v.begin(), v.end(), std::ostream_iterator&lt;int&gt;(std::cout, &quot; &quot;));
+    std::cout &lt;&lt; &quot;\n&quot;;</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pbBackInsertIterator">
+                <property name="text">
+                 <string>执行</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_15">
+                <property name="text">
+                 <string>    std::vector&lt;int&gt; v;
+    int n = 0;
+
+    std::generate_n(std::back_insert_iterator&lt;std::vector&lt;int&gt;&gt;(v), 10, [n]() mutable{return ++n;});
+
+    std::copy(v.begin(), v.end(), std::ostream_iterator&lt;int&gt;(std::cout, &quot; &quot;));
+    std::cout &lt;&lt; &quot;\n&quot;;</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pbBackInsertIteratorGenerate_n">
+                <property name="text">
+                 <string>执行</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_16">
+                <property name="text">
+                 <string>    std::vector&lt;int&gt; v{1,2,3,4,5};
+
+    v.reserve(2 * v.size()); //注意！一定要在调用copy之前确保有足够大的空间，因为插入元素时可能会造成指向v的其他迭代器失效
+    std::copy(v.begin(), v.end(), std::back_inserter(v));
+//    template&lt;class InputIt, class OutputIt&gt;
+//    OutputIt copy(InputIt first, InputIt last,
+//                  OutputIt d_first)
+//    {
+//        while (first != last) {
+//            *d_first++ = *first++;
+//        }
+//        return d_first;
+//    }
+
+    std::copy(v.begin(), v.end(), std::ostream_iterator&lt;int&gt;(std::cout, &quot; &quot;));
+    std::cout &lt;&lt; &quot;\n&quot;;</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pbBackInsertIteratorCopy">
+                <property name="text">
+                 <string>执行</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_17">
+                <property name="text">
+                 <string>    std::list&lt;int&gt; l;
+
+    ////使用std::front_insert_iterator模板类
+    std::front_insert_iterator&lt;std::list&lt;int&gt;&gt; fii(l);
+    //调用作为输出迭代器的接口
+    *fii++ = 1;
+    *fii++ = 2;
+    *fii++ = 3;
+    //插入迭代器的operator*和operator++、operator++(int)都是无操作，所以可以
+    fii = 4;
+    fii = 5;
+    fii = 6;
+
+    ////使用std::front_inserter辅助函数
+    std::front_inserter(l) = 7;
+    std::front_inserter(l) = 8;
+
+    std::copy(l.begin(), l.end(), std::ostream_iterator&lt;int&gt;(std::cout, &quot; &quot;));
+    std::cout &lt;&lt; &quot;\n&quot;;</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pbFrontInsertIterator">
+                <property name="text">
+                 <string>执行</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_18">
+                <property name="text">
+                 <string>    std::set&lt;int&gt; s;
+
+    ////使用std::insert_iterator模板类
+    std::insert_iterator&lt;std::set&lt;int&gt;&gt; ii(s, s.begin());
+    //调用作为输出迭代器的接口
+    *ii++ = 1;
+    *ii++ = 2;
+    *ii++ = 3;
+    //插入迭代器的operator*和operator++、operator++(int)都是无操作，所以可以
+    ii = 4;
+    ii = 5;
+    ii = 6;
+
+    ////使用std::inserter辅助函数
+    std::inserter(s, s.end()) = 7;
+    std::inserter(s, s.end()) = 8;
+
+    std::copy(s.begin(), s.end(), std::ostream_iterator&lt;int&gt;(std::cout, &quot; &quot;));
+    std::cout &lt;&lt; &quot;\n&quot;;</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pbInsertIterator">
+                <property name="text">
+                 <string>执行</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_22">
+                <property name="text">
+                 <string>//3.
+//流迭代器(stream iterator)
+
+//输入流迭代器是一种输入迭代器(input iterator)
+//(输入流迭代器与输出迭代器不同的是，&quot;variable = *pos&quot;也可以写为&quot;variable = pos&quot;，因为operator*是无操作(另外，operator++()和operator++(int)也是无操作))
+//(输入迭代器的常用方式是&quot;variable = *iter++&quot;，插入迭代器的另一种常用方式是&quot;variable = iter&quot;)
+
+//输出流迭代器是一种输出迭代器(output iterator)
+
+//std::istream_iterator  (默认构造的是end())
+//std::ostream_iterator
+
+//std::istreambuf_iterator (默认构造的是end())
+//std::ostreambuf_iterator
+
+//std::istreambuf_iterator比std::istream_iterator更有效率，因为他避免对每个字符构造并析构一次sentry对象的开销
+//读字符时，std::istream_iterator默认跳过空白字符(除非用std::noskipws或等价物禁用)，而std::istreambuf_iterator不跳过
+
+//对于逐个字符的输入考虑使用std::istreambuf_iterator</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_19">
+                <property name="text">
+                 <string>    std::ostream_iterator&lt;int&gt; writer(std::cout, &quot; &quot;);
+    //调用作为输出迭代器的接口
+    *writer++ = 1;
+    *writer++ = 2;
+    *writer++ = 3;
+    //输出流迭代器的operator*和operator++、operator++(int)都是无操作，所以可以
+    writer = 4;
+    writer = 5;
+    writer = 6;
+
+    std::cout &lt;&lt; &quot;\n&quot;;
+
+    std::vector&lt;int&gt; v{1,2,3,4,5,6,7,8,9};
+    std::copy(v.begin(), v.end(), std::ostream_iterator&lt;int&gt;(std::cout));
+    //    template&lt;class InputIt, class OutputIt&gt;
+    //    OutputIt copy(InputIt first, InputIt last,
+    //                  OutputIt d_first)
+    //    {
+    //        while (first != last) {
+    //            *d_first++ = *first++;
+    //        }
+    //        return d_first;
+    //    }
+
+    std::cout &lt;&lt; &quot;\n&quot;;</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pbOstreamIterator">
+                <property name="text">
+                 <string>执行</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_20">
+                <property name="text">
+                 <string>    std::istream_iterator&lt;int&gt; reader(std::cin);
+    std::istream_iterator&lt;int&gt; readerEOF;//默认构造函数创建end()
+
+    while(reader != readerEOF)
+    {
+        //调用作为输入迭代器的接口
+        std::cout &lt;&lt; *reader++ &lt;&lt; &quot;\n&quot;;
+        //输入流迭代器的operator*和operator++、operator++(int)都是无操作，所以可以
+        //std::cout &lt;&lt; reader &lt;&lt; &quot;\n&quot;;
+    }</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pbIstreamIterator">
+                <property name="text">
+                 <string>执行</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_21">
+                <property name="text">
+                 <string>    std::istream_iterator&lt;std::string&gt; reader(std::cin);
+    std::ostream_iterator&lt;std::string&gt; writer(std::cout , &quot; &quot;);
+
+    while(reader != std::istream_iterator&lt;std::string&gt;())
+    {
+        //每次跳过前两个字符串
+        std::advance(reader, 2);
+
+        //重新判断
+        if(reader != std::istream_iterator&lt;std::string&gt;())
+        {
+            *writer++ = *reader++;
+        }
+    }
+</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pbOstreamIteratorIstreamIterator">
+                <property name="text">
+                 <string>执行</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_26">
+                <property name="text">
+                 <string>    std::string filepath = &quot;123.txt&quot;;
+
+    std::vector&lt;std::string&gt; v{&quot;1&quot;, &quot;2&quot;, &quot;3&quot;};
+
+    std::ofstream of(filepath);//of创建时自动执行open，of析构时自动执行close
+    std::copy(v.begin(), v.end(), std::ostream_iterator&lt;std::string&gt;(of, &quot;\n&quot;));</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pbOfstreamOstreamIterator">
+                <property name="text">
+                 <string>执行</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_27">
+                <property name="text">
+                 <string>    std::string filepath = &quot;123.txt&quot;;
+
+    std::ifstream ifs(filepath);
+    ifs.unsetf(std::ios::skipws);//进制忽略文件中的空白字符
+
+    //std::string filedata(std::istream_iterator&lt;char&gt;(ifs), std::istream_iterator&lt;char&gt;());//编译器会认为是函数声明
+    std::string filedata((std::istream_iterator&lt;char&gt;(ifs)), (std::istream_iterator&lt;char&gt;()));
+
+    std::cout &lt;&lt; filedata &lt;&lt; &quot;\n&quot;;
+
+    //std::istream_iterator&lt;char&gt;对象使用operator&gt;&gt;从输入流中读取单个字符，而istreambuf_iterator&lt;char&gt;
+    //则直接从流的缓冲区中读取下一个字符
+    //std::istreambuf_iterator&lt;char&gt;对象从一个输入流istream s中读取下一个字符的操作是通过s.rdbuf()-&gt;sgetc()来完成的</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pbIfstreamIstreamIterator">
+                <property name="text">
+                 <string>执行</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_28">
+                <property name="text">
+                 <string>    std::string filepath = &quot;123.txt&quot;;
+
+    std::ifstream ifs(filepath);
+
+    //std::string filedata(std::istreambuf_iterator&lt;char&gt;(ifs), std::istreambuf_iterator&lt;char&gt;());//编译器会认为是函数声明
+    std::string filedata((std::istreambuf_iterator&lt;char&gt;(ifs)), (std::istreambuf_iterator&lt;char&gt;()));
+
+    std::cout &lt;&lt; filedata &lt;&lt; &quot;\n&quot;;</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pbIfstreamIstreambufIterator">
+                <property name="text">
+                 <string>执行</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_23">
+                <property name="text">
+                 <string>//4.
+//移动迭代器(move iterator)
+//移动迭代器(至少)是一个输入迭代器
+
+//std::move_iterator
+
+//辅助函数
+//std::make_move_iterator</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_24">
+                <property name="text">
+                 <string>    std::vector&lt;std::string&gt; v{&quot;this&quot;, &quot;is&quot;, &quot;an&quot;, &quot;example&quot;};
+
+    typedef std::vector&lt;std::string&gt;::iterator iter_t;
+    std::string result = std::accumulate(
+                            std::move_iterator&lt;iter_t&gt;(v.begin()),
+                            std::move_iterator&lt;iter_t&gt;(v.end()),
+                            std::string()
+                );
+
+    std::cout &lt;&lt; &quot;result:&quot; &lt;&lt; result &lt;&lt; &quot;\n&quot;;
+    std::cout &lt;&lt; &quot;v:&quot;;
+    std::copy(v.begin(), v.end(), std::ostream_iterator&lt;std::string&gt;(std::cout, &quot; &quot;));</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pbMoveIterator">
+                <property name="text">
+                 <string>执行</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_25">
+                <property name="text">
+                 <string>    std::vector&lt;std::string&gt; v{&quot;this&quot;, &quot;is&quot;, &quot;an&quot;, &quot;example&quot;};
+
+    typedef std::vector&lt;std::string&gt;::iterator iter_t;
+    std::string result = std::accumulate(
+                            std::make_move_iterator(v.begin()),
+                            std::make_move_iterator(v.end()),
+                            std::string()
+                );
+
+    std::cout &lt;&lt; &quot;result:&quot; &lt;&lt; result &lt;&lt; &quot;\n&quot;;
+    std::cout &lt;&lt; &quot;v:&quot;;
+    std::copy(v.begin(), v.end(), std::ostream_iterator&lt;std::string&gt;(std::cout, &quot; &quot;));</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pbMakeMoveIterator">
                 <property name="text">
                  <string>执行</string>
                 </property>

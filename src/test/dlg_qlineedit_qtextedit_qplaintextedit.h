@@ -35,6 +35,7 @@ private slots:
     void on_pbReadOnly_clicked();
     void on_pbEchoMode_clicked();
     void on_pbTWTextEdit_clicked();
+    void on_pbPlainTextEdit_clicked();
 
 private:
     Ui::dlg_qlineedit_qtextedit_qplaintextedit *ui;

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>dlg_qspinbox_qdoublespinbox</class>
+ <widget class="QDialog" name="dlg_qspinbox_qdoublespinbox">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1163</width>
+    <height>752</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QSplitter" name="splitter">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="title">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="title">
+       <string/>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QScrollArea" name="scrollArea">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>-215</y>
+            <width>918</width>
+            <height>906</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <widget class="QGroupBox" name="groupBox_3">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout">
+              <item row="2" column="0" colspan="2">
+               <widget class="QSpinBox" name="sbCodeSet"/>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLineEdit" name="leSpinBox"/>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label">
+                <property name="text">
+                 <string>result</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="QSpinBox" name="sbUISet">
+                <property name="suffix">
+                 <string>kg</string>
+                </property>
+                <property name="prefix">
+                 <string>Dec</string>
+                </property>
+                <property name="maximum">
+                 <number>100</number>
+                </property>
+                <property name="value">
+                 <number>4</number>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0" colspan="2">
+               <widget class="QPushButton" name="pbSpinBox">
+                <property name="text">
+                 <string>设置</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QLineEdit" name="leSpinBoxText"/>
+              </item>
+              <item row="5" column="0" colspan="2">
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>    //在使用QSpinBox和QDoubleSpinBox读取和设置数值时，无需做字符串与数值之间的转换，也无需做进制的转换，
+    //其显示效果(前缀、后缀、进制和小数位数)在设置好之后就自动按照效果进行显示，这对于数值的输入输出是非常方便的
+
+    ui-&gt;sbCodeSet-&gt;setPrefix(QString(&quot;Dec&quot;));
+    ui-&gt;sbCodeSet-&gt;setSuffix(QString(&quot;kg&quot;));
+
+    ui-&gt;sbCodeSet-&gt;setDisplayIntegerBase(10);//十进制 QSpinBox特有属性
+    ui-&gt;sbCodeSet-&gt;setMinimum(0);
+    ui-&gt;sbCodeSet-&gt;setMaximum(100);
+    ui-&gt;sbCodeSet-&gt;setSingleStep(1);
+
+    ui-&gt;sbCodeSet-&gt;setValue(4);//频繁使用
+
+    connect(ui-&gt;sbCodeSet, static_cast&lt;void(QSpinBox::*)(int)&gt;(&amp;QSpinBox::valueChanged), [this](int i){
+        ui-&gt;leSpinBox-&gt;setText(QString::number(i));
+    });
+
+    connect(ui-&gt;sbCodeSet, static_cast&lt;void(QSpinBox::*)(QString const&amp; text)&gt;(&amp;QSpinBox::valueChanged), [this](QString const&amp; text){
+        ui-&gt;leSpinBoxText-&gt;setText(text);
+    });</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_4">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_2">
+              <item row="0" column="0" colspan="2">
+               <widget class="QPushButton" name="pbDoubleSpinBox">
+                <property name="text">
+                 <string>设置</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="QDoubleSpinBox" name="dsbUISet">
+                <property name="prefix">
+                 <string>Dec</string>
+                </property>
+                <property name="suffix">
+                 <string>kg</string>
+                </property>
+                <property name="decimals">
+                 <number>2</number>
+                </property>
+                <property name="maximum">
+                 <double>1000.000000000000000</double>
+                </property>
+                <property name="value">
+                 <double>4.000000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QDoubleSpinBox" name="dsbCodeSet"/>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label_3">
+                <property name="text">
+                 <string>result</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLineEdit" name="leDoubleSpinBox"/>
+              </item>
+              <item row="4" column="1">
+               <widget class="QLineEdit" name="leDoubleSpinBoxText"/>
+              </item>
+              <item row="5" column="0" colspan="2">
+               <widget class="QLabel" name="label_4">
+                <property name="text">
+                 <string>    ui-&gt;dsbCodeSet-&gt;setPrefix(QString(&quot;Dec&quot;));
+    ui-&gt;dsbCodeSet-&gt;setSuffix(QString(&quot;kg&quot;));
+
+    ui-&gt;dsbCodeSet-&gt;setDecimals(2);//小数点精度   QDoubleSpinBox特有属性
+    ui-&gt;dsbCodeSet-&gt;setMinimum(0);
+    ui-&gt;dsbCodeSet-&gt;setMaximum(100);
+    ui-&gt;dsbCodeSet-&gt;setSingleStep(1);
+
+    ui-&gt;dsbCodeSet-&gt;setValue(4);//频繁使用
+
+    connect(ui-&gt;dsbCodeSet, static_cast&lt;void(QDoubleSpinBox::*)(double)&gt;(&amp;QDoubleSpinBox::valueChanged), [this](double d){
+        ui-&gt;leDoubleSpinBox-&gt;setText(QString::number(d));
+    });
+
+    connect(ui-&gt;dsbCodeSet, static_cast&lt;void(QDoubleSpinBox::*)(QString const&amp; text)&gt;(&amp;QDoubleSpinBox::valueChanged), [this](QString const&amp; text){
+        ui-&gt;leDoubleSpinBoxText-&gt;setText(text);
+    });</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>190</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

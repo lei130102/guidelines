@@ -10,6 +10,9 @@
 
 #include <QScrollBar>
 
+#include <QMenu>
+#include <QTextBlock>
+
 dlg_qlineedit_qtextedit_qplaintextedit::dlg_qlineedit_qtextedit_qplaintextedit(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::dlg_qlineedit_qtextedit_qplaintextedit)
@@ -166,5 +169,36 @@ void dlg_qlineedit_qtextedit_qplaintextedit::on_pbTWTextEdit_clicked()
 
     ui->twTextEdit->setCellWidget(0, 0, pTextEdit);
     ui->twTextEdit->setRowHeight(0, height * 1.3);//1.3为了有个余量
+}
+
+void dlg_qlineedit_qtextedit_qplaintextedit::on_pbPlainTextEdit_clicked()
+{
+    //逐行读取文本内容
+    //如果要将QPlainTextEdit组件里显示的所有文字读取出来，有一个简单的函数toPlainText()可以将全部文字内容输出为一个字符串
+    //QString QPlainTextEdit::toPlainText() const
+    //但是如果要逐行读取QPlainTextEdit组件里的字符串，则稍微麻烦一点
+
+    QTextDocument* doc = ui->plainTextEdit->document();//文本对象
+    int cnt = doc->blockCount();//回车符是一个block
+
+    ui->cbPlainTextEdit->clear();
+    for (int i = 0; i < cnt; ++i)
+    {
+        QTextBlock textLine = doc->findBlockByNumber(i);//文本中的一段
+        QString str = textLine.text();
+        ui->cbPlainTextEdit->addItem(str);
+    }
+
+    //QPlainTextEdit的文字内容以QTextDocument类型存储，函数document()返回这个文档对象的指针
+    //QTextDocument是内存中的文本对象，以文本块的方式存储，一个文本块就是一个段落，每个段落以回车符结束。QTextDocument提供一些函数实现对文本内容的存取
+    //a.int blockCount()，获得文本块个数
+    //b.QTextBlock findBlockByNumber(int blockNumber)，读取某一个文本块，序号从0开始，至blockCount()-1结束
+    //一个document有多个TextBlock，从document中读取出的一个文本块类型为QTextBlock，通过QTextBlock::text()函数可以获取其纯文本文字
+
+
+    connect(ui->plainTextEdit, &QPlainTextEdit::customContextMenuRequested, [this](QPoint const& pos){
+        QMenu* menu = ui->plainTextEdit->createStandardContextMenu();
+        menu->exec(pos);
+    });
 }
 

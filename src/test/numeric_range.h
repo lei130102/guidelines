@@ -24,13 +24,13 @@ public:
     //定义begin接口
     numeric_iterator<T> begin()
     {
-        return numeric_iterator<T>(*this);
+        return numeric_iterator<T>(this);
     }
 
     //定义end接口
     numeric_iterator<T> end()
     {
-        numeric_iterator<T> end_iter(*this);
+        numeric_iterator<T> end_iter;
         end_iter.m_value = m_start + m_count * m_step;
 
         return end_iter;
@@ -42,18 +42,29 @@ private:
     size_t m_count;
 };
 
+
+
+//numeric_iterator的成员函数分两类：
+//1.对numeric_range提供
+//目的是为了实现numeric_range的接口，比如begin()和end()。
+//2.对外(非numeric_range)提供
+//目的是为了满足迭代器类别的要求
+
+//为了简化和防止混淆，第一类成员函数不再提供，而是使用友元类方式，numeric_iterator可以作为嵌套类，但是因为嵌套类有限制(比如在Qt中)，所以尽量不要用嵌套类
 template<typename T>
 class numeric_iterator : public std::iterator<std::forward_iterator_tag, T> //借助iterator模板定义自定义迭代器类，指定为前向迭代器
 {
     friend class numeric_range<T>;
 
 public:
-    explicit numeric_iterator(numeric_range<T>& a_range)
-        :m_range(a_range), m_value{a_range.m_start}
+    explicit numeric_iterator(numeric_range<T>* a_range)
+        :m_range(a_range), m_value{a_range->m_start}
     {}
 
     //iter()        (默认构造函数)
-    //这里无法提供，严格来说numeric_iterator不满足前向迭代器!!!
+    numeric_iterator()
+        :m_range(nullptr), m_value{}
+    {}
 
     //iter(iter const&）(复制构造函数)
     //编译器自动生成
@@ -61,7 +72,7 @@ public:
     //*iter  读取实际元素
     T& operator*()
     {
-        if(m_value == static_cast<T>(m_range.m_start + m_range.m_count * m_range.m_step))
+        if(m_value == static_cast<T>(m_range->m_start + m_range->m_count * m_range->m_step))
         {
             throw std::logic_error("cannot dereference an end iterator.");
         }
@@ -73,23 +84,23 @@ public:
     //++iter
     numeric_iterator& operator++()
     {
-        if(m_value == static_cast<T>(m_range.m_start + m_range.m_count * m_range.m_step))
+        if(m_value == static_cast<T>(m_range->m_start + m_range->m_count * m_range->m_step))
         {
             throw std::logic_error("cannot increment an end iterator.");
         }
-        m_value += m_range.m_step;
+        m_value += m_range->m_step;
         return *this;
     }
 
     //iter++
     numeric_iterator operator++(int)
     {
-        if(m_value == static_cast<T>(m_range.m_start + m_range.m_count * m_range.m_step))
+        if(m_value == static_cast<T>(m_range->m_start + m_range->m_count * m_range->m_step))
         {
             throw std::logic_error("cannot increment an end iterator.");
         }
         auto temp = *this;
-        m_value += m_range.m_step;
+        m_value += m_range->m_step;
         return temp;
     }
 
@@ -114,7 +125,7 @@ public:
     }
 
 private:
-    numeric_range<T>& m_range;
+    numeric_range<T>* m_range;
     T m_value;
 };
 

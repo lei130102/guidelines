@@ -155,9 +155,9 @@
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>-1035</y>
-            <width>798</width>
-            <height>1860</height>
+            <y>-1066</y>
+            <width>942</width>
+            <height>2338</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout">
@@ -419,15 +419,61 @@ QLineEdit::PasswordEchoOnEdit 处于输入状态的时候，是正常显示字�
               <string/>
              </property>
              <layout class="QGridLayout" name="gridLayout_8">
+              <item row="2" column="0">
+               <widget class="QPushButton" name="pbPlainTextEdit">
+                <property name="text">
+                 <string>设置</string>
+                </property>
+               </widget>
+              </item>
               <item row="0" column="0">
                <widget class="QPlainTextEdit" name="plainTextEdit"/>
               </item>
-              <item row="1" column="0">
+              <item row="4" column="0">
                <widget class="QLabel" name="label_19">
                 <property name="text">
-                 <string>QPlainTextEdit支持富文本编辑</string>
+                 <string>QPlainTextEdit支持富文本编辑
+
+QPlainTextEdit提供cut()、copy()、paste()、undo()、redo()、clear()、selectAll()等标准编辑功能的槽函数
+QPlainTextEdit还提供一个标准的右键快捷菜单。</string>
                 </property>
                </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_22">
+                <property name="text">
+                 <string>    //逐行读取文本内容
+    //如果要将QPlainTextEdit组件里显示的所有文字读取出来，有一个简单的函数toPlainText()可以将全部文字内容输出为一个字符串
+    //QString QPlainTextEdit::toPlainText() const
+    //但是如果要逐行读取QPlainTextEdit组件里的字符串，则稍微麻烦一点
+
+    QTextDocument* doc = ui-&gt;plainTextEdit-&gt;document();//文本对象
+    int cnt = doc-&gt;blockCount();//回车符是一个block
+
+    ui-&gt;cbPlainTextEdit-&gt;clear();
+    for (int i = 0; i &lt; cnt; ++i)
+    {
+        QTextBlock textLine = doc-&gt;findBlockByNumber(i);//文本中的一段
+        QString str = textLine.text();
+        ui-&gt;cbPlainTextEdit-&gt;addItem(str);
+    }
+
+    //QPlainTextEdit的文字内容以QTextDocument类型存储，函数document()返回这个文档对象的指针
+    //QTextDocument是内存中的文本对象，以文本块的方式存储，一个文本块就是一个段落，每个段落以回车符结束。QTextDocument提供一些函数实现对文本内容的存取
+    //a.int blockCount()，获得文本块个数
+    //b.QTextBlock findBlockByNumber(int blockNumber)，读取某一个文本块，序号从0开始，至blockCount()-1结束
+    //一个document有多个TextBlock，从document中读取出的一个文本块类型为QTextBlock，通过QTextBlock::text()函数可以获取其纯文本文字
+
+
+    connect(ui-&gt;plainTextEdit, &amp;QPlainTextEdit::customContextMenuRequested, [](QPoint const&amp; pos){
+        QMenu* menu = ui-&gt;plainTextEdit-&gt;createStandardContextMenu();
+        menu-&gt;exec(pos);
+    });</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QComboBox" name="cbPlainTextEdit"/>
               </item>
              </layout>
             </widget>

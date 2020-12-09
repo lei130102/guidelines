@@ -50,3 +50,6 @@ BOOST_AUTO_TEST_CASE(c_boosttest)
 }
 
 BOOST_AUTO_TEST_SUITE_END()
+
+
+//使用vs cmake时，有时会C++ IntelliSense工作异常，代码下都是红线，这时应该检查CMakeSettings.json中的intelliSenseMode，然后删除.vs文件夹并重新生成缓存

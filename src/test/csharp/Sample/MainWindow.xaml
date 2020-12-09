@@ -1,0 +1,17 @@
+﻿<Window x:Class="Sample.MainWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Sample"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             WindowStyle="None" ResizeMode="NoResize"
+        >
+    <DockPanel>
+        <Button x:Name="button1" Content="Top" DockPanel.Dock="Top" Background="#FF2E1DD6" Height="30"/>
+        <Button x:Name="button" Content="Left" Background="#FF0EA80E" Width="30"/>
+        <Button x:Name="button2" Content="Right" DockPanel.Dock="Right" Background="#FF9C0B68" Width="30"/>
+        <Button x:Name="button3" Content="Bottom" DockPanel.Dock="Bottom" Background="#FFD46220" Click="button3_Click"/>
+    </DockPanel>
+</Window>

@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>dlg_qcombobox</class>
+ <widget class="QDialog" name="dlg_qcombobox">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1205</width>
+    <height>648</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QSplitter" name="splitter">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="title">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="title">
+       <string/>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QScrollArea" name="scrollArea">
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidgetContents">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>-1180</y>
+            <width>1128</width>
+            <height>2091</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QGroupBox" name="groupBox_4">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout">
+              <item>
+               <widget class="QLabel" name="label_2">
+                <property name="text">
+                 <string>    //enum ItemDataRole {
+    //    DisplayRole = 0,
+    //    DecorationRole = 1,
+    //    EditRole = 2,
+    //    ToolTipRole = 3,
+    //    StatusTipRole = 4,
+    //    WhatsThisRole = 5,
+    //    // Metadata
+    //    FontRole = 6,
+    //    TextAlignmentRole = 7,
+    //    BackgroundColorRole = 8,
+    //    BackgroundRole = 8,
+    //    TextColorRole = 9,
+    //    ForegroundRole = 9,
+    //    CheckStateRole = 10,
+    //    // Accessibility
+    //    AccessibleTextRole = 11,
+    //    AccessibleDescriptionRole = 12,
+    //    // More general purpose
+    //    SizeHintRole = 13,
+    //    InitialSortOrderRole = 14,
+    //    // Internal UiLib roles. Start worrying when public roles go that high.
+    //    DisplayPropertyRole = 27,
+    //    DecorationPropertyRole = 28,
+    //    ToolTipPropertyRole = 29,
+    //    StatusTipPropertyRole = 30,
+    //    WhatsThisPropertyRole = 31,
+    //    // Reserved
+    //    UserRole = 0x0100
+    //};</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_3">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout">
+              <item row="0" column="0" colspan="3">
+               <widget class="QComboBox" name="cbInitQString"/>
+              </item>
+              <item row="1" column="0" colspan="3">
+               <widget class="QLabel" name="label">
+                <property name="text">
+                 <string>    std::vector&lt;std::tuple&lt;QIcon, QString, int&gt;&gt; data{
+        std::make_tuple(QIcon(&quot;:/images/icons/aim.ico&quot;), QString(&quot;displayText0&quot;), 0),
+        std::make_tuple(QIcon(&quot;:/images/icons/aim.ico&quot;), QString(&quot;displayText1&quot;), 1),
+        std::make_tuple(QIcon(&quot;:/images/icons/aim.ico&quot;), QString(&quot;displayText2&quot;), 2),
+        std::make_tuple(QIcon(&quot;:/images/icons/aim.ico&quot;), QString(&quot;displayText3&quot;), 3),
+        std::make_tuple(QIcon(&quot;:/images/icons/aim.ico&quot;), QString(&quot;displayText4&quot;), 4),
+        std::make_tuple(QIcon(&quot;:/images/icons/aim.ico&quot;), QString(&quot;displayText5&quot;), 5)
+    };
+
+    ui-&gt;cbInitQString-&gt;clear();
+
+    for(auto const&amp; elem : data)
+    {
+        //ui-&gt;cbInitQString-&gt;addItem(std::get&lt;0&gt;(elem), std::get&lt;1&gt;(elem), std::get&lt;2&gt;(elem));
+        //icon是std::get&lt;0&gt;(elem)
+        //userData是std::get&lt;2&gt;(elem)，对应的是Qt::UserRole
+        //icon和userData不是必需的
+
+
+
+        ////或者
+
+
+
+        ui-&gt;cbInitQString-&gt;addItem(std::get&lt;1&gt;(elem));
+        //注意第一次调用时，ui-&gt;cbInitQString-&gt;currentIndex()从-1变为0，之后一直保持0
+
+        int index = ui-&gt;cbInitQString-&gt;count() - 1;
+        ui-&gt;cbInitQString-&gt;setItemIcon(index, std::get&lt;0&gt;(elem));
+        ui-&gt;cbInitQString-&gt;setItemData(index, std::get&lt;2&gt;(elem), Qt::UserRole);
+    }
+
+    //因为两个成员函数信号名一样，所以以这种方式调用需要转函数类型
+    //成员函数类型为void(QComboBox::*)(int)
+    connect(ui-&gt;cbInitQString, static_cast&lt;void(QComboBox::*)(int)&gt;(&amp;QComboBox::currentIndexChanged), [this](int index){
+
+        //int index = ui-&gt;cbInitQString-&gt;currentIndex();
+        QString text = ui-&gt;cbInitQString-&gt;currentText();
+
+        //略
+
+    });
+
+    ////或者
+
+    //成员函数类型为void(QComboBox::*)(QString const&amp;)
+    connect(ui-&gt;cbInitQString, static_cast&lt;void(QComboBox::*)(QString const&amp;)&gt;(&amp;QComboBox::currentIndexChanged), [this](QString const&amp; text){
+
+        int index = ui-&gt;cbInitQString-&gt;currentIndex();
+        //QString text = ui-&gt;cbInitQString-&gt;currentText();
+
+        ui-&gt;leIndex-&gt;setText(QString::number(index));
+        ui-&gt;leIcon-&gt;setText(ui-&gt;cbInitQString-&gt;itemIcon(index).name());
+        ui-&gt;leText-&gt;setText(ui-&gt;cbInitQString-&gt;itemText(index));
+        ui-&gt;leUserData-&gt;setText(ui-&gt;cbInitQString-&gt;itemData(index).toString());
+
+    });</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="3">
+               <widget class="QPushButton" name="pbComboBoxInitQString">
+                <property name="text">
+                 <string>使用一组图标、显示文本和若干自定义数据初始化QComboBox</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0" rowspan="2" colspan="2">
+               <widget class="QLabel" name="label_3">
+                <property name="text">
+                 <string>index</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1" colspan="2">
+               <widget class="QLineEdit" name="leIndex">
+                <property name="text">
+                 <string>-1</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QLabel" name="label_4">
+                <property name="text">
+                 <string>icon</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1" colspan="2">
+               <widget class="QLineEdit" name="leIcon"/>
+              </item>
+              <item row="6" column="0">
+               <widget class="QLabel" name="label_5">
+                <property name="text">
+                 <string>text</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1" colspan="2">
+               <widget class="QLineEdit" name="leText"/>
+              </item>
+              <item row="7" column="0">
+               <widget class="QLabel" name="label_6">
+                <property name="text">
+                 <string>userData</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="2">
+               <widget class="QLineEdit" name="leUserData"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QGroupBox" name="groupBox_5">
+             <property name="title">
+              <string/>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_2">
+              <item row="0" column="0">
+               <widget class="QComboBox" name="cbBlockSignal"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_8">
+                <property name="text">
+                 <string>    //第二次调用本函数时，因为下面的程序代码clear，导致触发QComboBox::currentIndexChanged信号，所以做好加上blockSignal
+
+    ui-&gt;cbBlockSignal-&gt;blockSignals(true);
+    ui-&gt;cbBlockSignal-&gt;clear();
+    ui-&gt;cbBlockSignal-&gt;addItem(&quot;t1&quot;);
+    ui-&gt;cbBlockSignal-&gt;addItem(&quot;t2&quot;);
+    ui-&gt;cbBlockSignal-&gt;addItem(&quot;t3&quot;);
+    ui-&gt;cbBlockSignal-&gt;blockSignals(false);
+
+    connect(ui-&gt;cbBlockSignal, static_cast&lt;void(QComboBox::*)(QString const&amp;)&gt;(&amp;QComboBox::currentIndexChanged), [this](QString const&amp; text){
+
+        QMessageBox::warning(this, QString::fromStdWString(boost::locale::conv::to_utf&lt;wchar_t&gt;(&quot;注意&quot;, &quot;gbk&quot;)),
+                                   QString::fromStdWString(boost::locale::conv::to_utf&lt;wchar_t&gt;(&quot;ui-&gt;cbBlockSignal触发QComboBox::currentIndexChanged信号&quot;, &quot;gbk&quot;)), QMessageBox::Ok);
+
+    });</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QPushButton" name="pbBlockSignalInit">
+                <property name="text">
+                 <string>初始化</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label_7">
+                <property name="text">
+                 <string>    int count = ui-&gt;cbBlockSignal-&gt;count();
+    int index = ui-&gt;cbBlockSignal-&gt;currentIndex();
+    if(++index &gt; (count - 1))
+    {
+        index = 0;
+    }
+    ui-&gt;cbBlockSignal-&gt;setCurrentIndex(index);</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QPushButton" name="pbBlockSignalFalse">
+                <property name="text">
+                 <string>默认通过程序代码，会导致QComboBox对象触发QComboBox::currentIndexChanged消息</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QLabel" name="label_9">
+                <property name="text">
+                 <string>    int count = ui-&gt;cbBlockSignal-&gt;count();
+    int index = ui-&gt;cbBlockSignal-&gt;currentIndex();
+    if(++index &gt; (count - 1))
+    {
+        index = 0;
+    }
+    ui-&gt;cbBlockSignal-&gt;blockSignals(true);
+    ui-&gt;cbBlockSignal-&gt;setCurrentIndex(index);
+    ui-&gt;cbBlockSignal-&gt;blockSignals(false);</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="0">
+               <widget class="QPushButton" name="pbBlockSignalTrue">
+                <property name="text">
+                 <string>利用QComboBox::blockSignal(true)，避免通过程序代码导致QComboBox对象触发QComboBox::currentIndexChanged消息</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>258</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
