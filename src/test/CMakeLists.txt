@@ -268,6 +268,12 @@ add_exe(test_iterator
     )
 
 
+#boost
+add_exe(test_intrusive_test
+    "test_intrusive_test.cpp"
+    "test_intrusive_test.h")
+
+
 
 #windows测试工具相关
 add_dbghelp_exe(test_dbghelp "test_dbghelp.cpp" "dlg_dbghelp.h" "dlg_dbghelp.cpp" "dlg_dbghelp.ui")
@@ -300,4 +306,9 @@ add_tsd_lib(TSDPointClusterTestEvaluationIndexCalculation
 
 add_tsd_exe(TSDPointClusterTestEvaluationIndexCalculationTest
     "TSDPointClusterTestEvaluationIndexCalculationTest.cpp"
+    )
+
+add_exe(test_type_traits
+    "test_type_traits.cpp"
+    "test_type_traits.h"
     )
