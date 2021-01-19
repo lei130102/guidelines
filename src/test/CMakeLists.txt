@@ -254,8 +254,14 @@ add_exe(test_hostwindowforwpf
     )
 
 
+add_exe(test_sql
+    "test_qsql.cpp")
 
+add_exe(test_template
+    "test_template.cpp")
 
+add_exe(test_template_custom
+    "test_template_custom.cpp")
 
 
 #c++标准库
@@ -311,4 +317,21 @@ add_tsd_exe(TSDPointClusterTestEvaluationIndexCalculationTest
 add_exe(test_type_traits
     "test_type_traits.cpp"
     "test_type_traits.h"
+    )
+
+add_exe(test_encryption
+    "test_encryption.cpp"
+    "dlg_encryption.h"
+    "dlg_encryption.cpp"
+    "dlg_encryption.ui"
+    )
+
+add_exe(test_optional
+    "test_optional.cpp"
+    "test_optional.h"
+    )
+
+add_exe(test_propertytree
+    "test_propertytree.cpp"
+    "test_propertytree.h"
     )
