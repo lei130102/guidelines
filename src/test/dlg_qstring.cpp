@@ -399,4 +399,3 @@ void dlg_qstring::on_pbSprintf_clicked()
 
 
 
-
