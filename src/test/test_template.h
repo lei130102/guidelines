@@ -1200,3 +1200,29 @@ namespace test_template_hook
 	class a_member_hook : public make_a_member_hook<Options...>::type
 	{};
 }
+
+namespace test_template_const_char
+{
+	extern const char a[] = "a";     //用数组而非指针是为了保证是编译期的
+	extern const char b[] = "b";
+
+	//还可以用 boost::mpl::string
+
+	//别名模板不支持部分特化和全特化
+
+	//字符串转类型
+	template<const char*>
+	struct to_type;
+
+	template<>
+	struct to_type<a>
+	{
+		using type = int;
+	};
+
+	template<>
+	struct to_type<b>
+	{
+		using type = double;
+	};
+}

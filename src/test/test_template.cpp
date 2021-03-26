@@ -3,6 +3,8 @@
 #define BOOST_TEST_MAIN
 #include <boost/test/included/unit_test.hpp>
 
+#include <test_template.h>
+
 BOOST_AUTO_TEST_SUITE(s_template)
 
 BOOST_AUTO_TEST_CASE(c_template)

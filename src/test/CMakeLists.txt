@@ -1,7 +1,18 @@
 #主要第三方库
 #
 set(BOOST_ROOT "$ENV{VCPKG_ROOT}")
-find_package(Boost COMPONENTS locale REQUIRED)
+find_package(Boost COMPONENTS system locale context filesystem REQUIRED)
+
+message(STATUS "Boost_INCLUDE_DIRS                           =${Boost_INCLUDE_DIRS}")
+message(STATUS "Boost_LIBRARIES                              =${Boost_LIBRARIES}")
+message(STATUS "Boost_CONTEXT_LIBRARY                        =${Boost_CONTEXT_LIBRARY}")
+message(STATUS "Boost_LOCALE_LIBRARY                         =${Boost_LOCALE_LIBRARY}")
+
+message(STATUS "Boost_THREAD_LIBRARY                         =${Boost_THREAD_LIBRARY}")
+message(STATUS "Boost_LOG_SETUP_LIBRARY                      =${Boost_LOG_SETUP_LIBRARY}")
+message(STATUS "Boost_LOG_LIBRARY                            =${Boost_LOG_LIBRARY}")
+message(STATUS "Boost_PROGRAM_OPTIONS_LIBRARY                =${Boost_PROGRAM_OPTIONS_LIBRARY}")
+message(STATUS "Boost_FILESYSTEM_LIBRARY                     =${Boost_FILESYSTEM_LIBRARY}")
 
 #
 find_package(Qt5 COMPONENTS Core Gui Widgets PrintSupport Xml OpenGL Concurrent Sql REQUIRED)
@@ -19,7 +30,10 @@ find_package(CGAL CONFIG REQUIRED COMPONENTS Qt5 Core)
 
 find_package(RapidJSON CONFIG REQUIRED)
 
-message(STATUS "Boost_INCLUDE_DIRS                =${Boost_INCLUDE_DIRS}")
+find_package(imgui CONFIG REQUIRED)
+
+find_package(sqlite3 REQUIRED)
+
 message(STATUS "CGAL_ROOT                         =${CGAL_ROOT}")
 message(STATUS "CGAL_CONFIG_DIR                   =${CGAL_CONFIG_DIR}")
 message(STATUS "CGAL_INCLUDE_DIRS                 =${CGAL_INCLUDE_DIRS}")
@@ -31,12 +45,13 @@ function(add_exe exe_name)
 
     target_include_directories(${exe_name} PRIVATE ${Boost_INCLUDE_DIRS})
 
-    target_link_libraries(${exe_name} Qt5::Core Qt5::Widgets Qt5::Sql ${Boost_LIBRARIES})
+    target_link_libraries(${exe_name} Qt5::Core Qt5::Widgets Qt5::Sql ${Boost_CONTEXT_LIBRARY} ${Boost_LOCALE_LIBRARY} ${Boost_THREAD_LIBRARY} ${Boost_LOG_SETUP_LIBRARY} ${Boost_LOG_LIBRARY} ${Boost_PROGRAM_OPTIONS_LIBRARY} ${Boost_FILESYSTEM_LIBRARY})
 
     if(MSVC)
         target_compile_options(${exe_name} PUBLIC /source-charset:utf-8)
     else()
         target_compile_options(${exe_name} PUBLIC -municode)
+         target_link_options(${test_name} PUBLIC -municode)
     endif()
 
     set_target_properties(${exe_name} PROPERTIES OUTPUT_NAME "${exe_name}$<$<CONFIG:Debug>:_d>")
@@ -63,6 +78,7 @@ function(add_cgal_exe exe_name)
         target_compile_options(${exe_name} PUBLIC /source-charset:utf-8)
     else()
         target_compile_options(${exe_name} PUBLIC -municode)
+         target_link_options(${test_name} PUBLIC -municode)
     endif()
 
     set_target_properties(${exe_name} PROPERTIES OUTPUT_NAME "${exe_name}$<$<CONFIG:Debug>:_d>")
@@ -87,6 +103,7 @@ function(add_rapidjson_exe exe_name)
         target_compile_options(${exe_name} PUBLIC /source-charset:utf-8)
     else()
         target_compile_options(${exe_name} PUBLIC -municode)
+         target_link_options(${test_name} PUBLIC -municode)
     endif()
 
     set_target_properties(${exe_name} PROPERTIES OUTPUT_NAME "${exe_name}$<$<CONFIG:Debug>:_d>")
@@ -114,6 +131,7 @@ function(add_tsd_lib lib_name)
         target_compile_options(${lib_name} PUBLIC /source-charset:utf-8)
     else()
         target_compile_options(${lib_name} PUBLIC -municode)
+         target_link_options(${test_name} PUBLIC -municode)
     endif()
 
     set_target_properties(${lib_name} PROPERTIES OUTPUT_NAME "${lib_name}$<$<CONFIG:Debug>:_d>")
@@ -139,6 +157,7 @@ function(add_tsd_exe exe_name)
         target_compile_options(${exe_name} PUBLIC /source-charset:utf-8)
     else()
         target_compile_options(${exe_name} PUBLIC -municode)
+         target_link_options(${test_name} PUBLIC -municode)
     endif()
 
     set_target_properties(${exe_name} PROPERTIES OUTPUT_NAME "${exe_name}$<$<CONFIG:Debug>:_d>")
@@ -176,8 +195,58 @@ function(add_dbghelp_exe exe_name)
 
 endfunction()
 
+function(add_imgui_exe exe_name)
+    add_executable(${exe_name} ${ARGN})
+
+    target_include_directories(${exe_name} PRIVATE ${Boost_INCLUDE_DIRS})
+
+    target_link_libraries(${exe_name} ${Boost_LIBRARIES} imgui::imgui)
+
+    if(MSVC)
+        target_compile_options(${exe_name} PUBLIC /source-charset:utf-8)
+    else()
+        target_compile_options(${exe_name} PUBLIC -municode)
+    endif()
+
+    set_target_properties(${exe_name} PROPERTIES OUTPUT_NAME "${exe_name}$<$<CONFIG:Debug>:_d>")
+
+    set_target_properties(${exe_name} PROPERTIES RUNTIME_OUTPUT_DIRECTORY_DEBUG "${CMAKE_BINARY_DIR}/${BUILD_RUNTIME_DIR}")
+    set_target_properties(${exe_name} PROPERTIES RUNTIME_OUTPUT_DIRECTORY_RELEASE "${CMAKE_BINARY_DIR}/${BUILD_RUNTIME_DIR}")
+    set_target_properties(${exe_name} PROPERTIES LIBRARY_OUTPUT_DIRECTORY_DEBUG "${CMAKE_BINARY_DIR}/${BUILD_LIBRARY_DIR}")
+    set_target_properties(${exe_name} PROPERTIES LIBRARY_OUTPUT_DIRECTORY_RELEASE "${CMAKE_BINARY_DIR}/${BUILD_LIBRARY_DIR}")
+    set_target_properties(${exe_name} PROPERTIES ARCHIVE_OUTPUT_DIRECTORY_DEBUG "${CMAKE_BINARY_DIR}/${BUILD_ARCHIVE_DIR}")
+    set_target_properties(${exe_name} PROPERTIES ARCHIVE_OUTPUT_DIRECTORY_RELEASE "${CMAKE_BINARY_DIR}/${BUILD_ARCHIVE_DIR}")
+
+endfunction()
+
+function(add_sqlite_exe exe_name)
+    add_executable(${exe_name} ${ARGN})
+
+    target_include_directories(${exe_name} PRIVATE ${Boost_INCLUDE_DIRS})
+
+    target_link_libraries(${exe_name} Qt5::Core Qt5::Widgets Qt5::Sql SQLite3 ${Boost_CONTEXT_LIBRARY} ${Boost_LOCALE_LIBRARY} ${Boost_THREAD_LIBRARY} ${Boost_LOG_SETUP_LIBRARY} ${Boost_LOG_LIBRARY} ${Boost_PROGRAM_OPTIONS_LIBRARY} ${Boost_FILESYSTEM_LIBRARY})
+
+    if(MSVC)
+        target_compile_options(${exe_name} PUBLIC /source-charset:utf-8)
+    else()
+        target_compile_options(${exe_name} PUBLIC -municode)
+    endif()
+
+    set_target_properties(${exe_name} PROPERTIES OUTPUT_NAME "${exe_name}$<$<CONFIG:Debug>:_d>")
+
+    set_target_properties(${exe_name} PROPERTIES RUNTIME_OUTPUT_DIRECTORY_DEBUG "${CMAKE_BINARY_DIR}/${BUILD_RUNTIME_DIR}")
+    set_target_properties(${exe_name} PROPERTIES RUNTIME_OUTPUT_DIRECTORY_RELEASE "${CMAKE_BINARY_DIR}/${BUILD_RUNTIME_DIR}")
+    set_target_properties(${exe_name} PROPERTIES LIBRARY_OUTPUT_DIRECTORY_DEBUG "${CMAKE_BINARY_DIR}/${BUILD_LIBRARY_DIR}")
+    set_target_properties(${exe_name} PROPERTIES LIBRARY_OUTPUT_DIRECTORY_RELEASE "${CMAKE_BINARY_DIR}/${BUILD_LIBRARY_DIR}")
+    set_target_properties(${exe_name} PROPERTIES ARCHIVE_OUTPUT_DIRECTORY_DEBUG "${CMAKE_BINARY_DIR}/${BUILD_ARCHIVE_DIR}")
+    set_target_properties(${exe_name} PROPERTIES ARCHIVE_OUTPUT_DIRECTORY_RELEASE "${CMAKE_BINARY_DIR}/${BUILD_ARCHIVE_DIR}")
+
+endfunction()
+
+
+
 #临时
-add_exe(test "test.cpp")
+add_exe(test "test.h" "test.cpp")
 
 #算法
 add_exe(test_idw "test_idw.cpp")
@@ -258,6 +327,7 @@ add_exe(test_sql
     "test_qsql.cpp")
 
 add_exe(test_template
+    "test_template.h"
     "test_template.cpp")
 
 add_exe(test_template_custom
@@ -335,3 +405,80 @@ add_exe(test_propertytree
     "test_propertytree.cpp"
     "test_propertytree.h"
     )
+
+add_exe(test_date_time
+    "test_date_time.cpp"
+    "test_date_time.h"
+    )
+
+add_imgui_exe(test_imgui
+    "test_imgui.cpp"
+    "test_imgui.h")
+
+add_exe(test_threadpool
+    "test_threadpool.cpp"
+    "test_threadpool.h"
+    )
+
+add_exe(test_process
+    "test_process.cpp"
+    "test_process.h")
+
+add_exe(test_type_index
+    "test_type_index.cpp"
+    "test_type_index.h")
+
+add_exe(test_beast_http
+    "mime_type.h"
+    "path_cat.h"
+    "handle_request.h"
+    "fail.h"
+    "websocket_session.h"
+    "http_session.h"
+    "listener.h"
+    "test_beast_http.cpp"
+    "test_beast_http.h")
+
+add_exe(test_cpu
+    "test_cpu.h"
+    "test_cpu.cpp")
+
+add_sqlite_exe(test_sqlite
+    "test_sqlite.h"
+    "test_sqlite.cpp")
+
+add_exe(test_string_wstring_u8string
+    "test_string_wstring_u8string.h"
+    "test_string_wstring_u8string.cpp")
+
+add_exe(test_signal2
+    "test_signals2.h"
+    "test_signals2.cpp")
+
+add_exe(test_reference_wrapper
+    "test_reference_wrapper.h"
+    "test_reference_wrapper.cpp")
+
+add_exe(test_bind
+    "test_bind.h"
+    "test_bind.cpp")
+
+add_exe(test_function
+    "test_function.h"
+    "test_function.cpp")
+
+add_exe(test_name
+    "test_name.h"
+    "test_name.cpp")
+
+add_exe(test_any
+    "test_any.h"
+    "test_any.cpp")
+
+add_exe(test_leet_code_flatten_nested_list_iterator
+    "test_lc_flatten_nested_list_iterator.h"
+    "test_lc_flatten_nested_list_iterator.cpp")
+
+add_exe(test_mp11
+    "test_mp11.h"
+    "test_mp11.cpp")

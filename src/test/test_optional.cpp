@@ -382,31 +382,4 @@ BOOST_AUTO_TEST_CASE(c_boost_optional)
 	//boost::optional<locked_device> t;可以转换为一个保存了false的布尔变量，并且不得解引用，因为他没有构造一个基本类型
 }
 
-BOOST_AUTO_TEST_CASE(c_qicosmos_optional)
-{
-	using namespace test_optional_qicosmos_optional;
-
-	optional<std::string> a("ok");
-	optional<std::string> b("ok");
-	optional<std::string> c("aa");
-
-	c = a;
-	if (c < a)
-	{
-		std::cout << "<" << std::endl;
-	}
-
-	if (a == b)
-	{
-		std::cout << "=" << std::endl;
-	}
-
-	std::map<optional<std::string>, int> mymap;
-	mymap.insert(std::make_pair(a, 1));
-	mymap.insert(std::make_pair(c, 2));
-
-	auto it = mymap.find(a);
-	std::cout << it->second << std::endl;
-}
-
 BOOST_AUTO_TEST_SUITE_END()

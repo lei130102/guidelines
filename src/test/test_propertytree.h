@@ -4,10 +4,13 @@
 #include <set>
 #include <exception>
 #include <iostream>
+#include <deque>
+#include <any>
 
 #include <boost/foreach.hpp>
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/xml_parser.hpp>
+#include <boost/property_tree/json_parser.hpp>
 
 namespace test_propertytree
 {
@@ -80,4 +83,57 @@ namespace test_propertytree
         }
     };
 
+}
+
+namespace test_property_type
+{
+    struct value_item
+    {
+        using group_type = std::deque<value_item>;    //当value类型为group_type时，type固定为std::deque<value_item>
+
+        boost::property_tree::ptree to_ptree() const
+        {
+            boost::property_tree::ptree value_item_tree;
+            value_item_tree.put("name", name);
+            value_item_tree.put("type", type);
+            if (value.type() == typeid(group_type))
+            {
+                boost::property_tree::ptree sub_value_item_tree;
+                group_type value_ = std::any_cast<group_type>(value);
+                std::for_each(value_.begin(), value_.end(), [&](value_item const& item) {
+                    sub_value_item_tree.add_child("item", item.to_ptree());
+                    });
+
+                value_item_tree.put_child("value", sub_value_item_tree);
+            }
+            else
+            {
+                value_item_tree.put("value", std::any_cast<int>(value));   //?
+            }
+            return value_item_tree;
+        }
+
+        std::string name;
+        std::string type;  //指定value的类型
+        std::any value;
+    };
+
+    struct root
+    {
+        std::deque<value_item> kiwi_fast;
+
+        boost::property_tree::ptree to_ptree() const
+        {
+            boost::property_tree::ptree kiwi_fast_tree;
+
+            std::for_each(kiwi_fast.begin(), kiwi_fast.end(), [&](value_item const& item) {
+                kiwi_fast_tree.add_child("item", item.to_ptree());
+            });
+
+            boost::property_tree::ptree root_tree;
+            root_tree.put_child("kiwi_fast", kiwi_fast_tree);
+
+            return root_tree;
+        }
+    };
 }

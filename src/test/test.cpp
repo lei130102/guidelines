@@ -16,6 +16,8 @@
 #define BOOST_TEST_INCLUDED
 #include <boost/test/unit_test.hpp>
 
+#include <test.h>
+
 BOOST_AUTO_TEST_SUITE(s_boosttest)
 
 BOOST_AUTO_TEST_CASE(c_boosttest)
@@ -47,6 +49,11 @@ BOOST_AUTO_TEST_CASE(c_boosttest)
     //{6392} normal block at 0x000002412F2162A0, 4 bytes long.
     // Data: <    > CD CD CD CD
     //Object dump complete.
+}
+
+BOOST_AUTO_TEST_CASE(c_test)
+{
+
 }
 
 BOOST_AUTO_TEST_SUITE_END()
