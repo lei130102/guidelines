@@ -1,4 +1,4 @@
-#include BOOST_TEST_MAIN
+#define BOOST_TEST_MAIN
 #include <boost/test/included/unit_test.hpp>
 
 #include <test_mp11.h>
