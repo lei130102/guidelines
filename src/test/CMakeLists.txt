@@ -509,19 +509,30 @@ add_exe(test_design_pattern
 #   外观模式(Facade Pattern)
     #"design_pattern_facade.cpp"
 #   享元模式(Flyweight Pattern)
-    #比较复杂，以后补充
+    #"design_pattern_flyweight.cpp"
 #   代理模式(Proxy Pattern)
     #"design_pattern_proxy.cpp"
 #行为型模式(Behavioral Patterns)        用于管理对象之间的算法、关系和职责
 #   模板方法模式(TemplateMethodPattern)
+    #design_pattern_templatemethod.cpp
 #   命令模式(Command Pattern)
+    #design_pattern_command.cpp
 #   迭代器模式(Iterator Pattern)
+    #design_pattern_iterator.cpp
 #   观察者模式(Observer Pattern)
+    #design_pattern_observer.cpp
 #   中介者模式(Mediator Pattern)
+    #design_pattern_mediator.cpp
 #   备忘录模式(Memento Pattern)
+    #design_pattern_memento.cpp
 #   解释器模式(Interpreter Pattern)
+    #没有，以后在别的地方补充
 #   状态模式(State Pattern)
+    #design_pattern_state.cpp
 #   策略模式(Strategy Pattern)
+    #design_pattern_strategy.cpp
 #   职责链模式(Chain of Responsibility Pattern)
+    #"design_pattern_chain_of_responsibility.cpp"
 #   访问者模式(Visitor Pattern)
+    "design_pattern_visitor.cpp"
     )
