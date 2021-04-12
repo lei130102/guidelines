@@ -536,3 +536,8 @@ add_exe(test_design_pattern
 #   访问者模式(Visitor Pattern)
     "design_pattern_visitor.cpp"
     )
+
+add_exe(test_move_semantics
+    "test_move_semantics.h"
+    "test_move_semantics.cpp"
+    )
