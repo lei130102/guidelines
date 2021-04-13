@@ -271,4 +271,195 @@ BOOST_AUTO_TEST_CASE(c_after_move_semantics_cpp11)
 
 ////实现移动语义
 
+//移动语义之前，std::vector<>只有一个push_back()的实现
+
+//template<typename T>
+//class vector
+//{
+//public:
+//	//...
+//
+//	//insert a copy of elem:
+//	void push_back(const T& elem);
+//
+//	//...
+//};
+
+//形参是常量左值引用，可以绑定左值和右值的实参。原理是在push_back函数内部拷贝elem并且不会修改elem，实参没有被修改仍然可以被继续使用
+
+//移动语义之后，又增加一个push_back()的重载
+
+//template<typename T>
+//class vector
+//{
+//public:
+//	//...
+//
+//	//insert a copy of elem:
+//	void push_back(const T& elem);
+//
+//	//insert elem when the value of elem is no longer needed:
+//	void push_back(T&& elem);
+//
+//	//...
+//};
+
+//形参是万能引用，可以绑定左值和右值的实参。原理是在push_back函数内部直接使用和修改实参，实参被修改所以不可以被继续使用(实际可以使用，只是不能假设他的值现在是什么)
+
+//然而，vector不知道怎样拷贝或移动一个元素，在确保vector有足够的内存盛放新元素时，vector将此工作委托给元素类型，这里就是std::string
+
+//1.
+//push_back(const T&)是传统的拷贝语义，他会调用std::string类的拷贝构造函数，该函数使用string对象(不会修改它)创建一个新的string对象
+
+//(简化实现)
+//class string
+//{
+//private:
+//	int len;                                       //current number of characters
+//	char* data;                                    //dynamic array of characters
+//
+//public:
+//	//copy constructor:create a full copy of s:
+//	string(const string& s)
+//		:len{ s.len }                              //copy number of characters
+//	{
+//		if (len > 0)                               //if not empty
+//		{
+//			data = new char[len + 1];              //-allocate new memory
+//			memcpy(data, s.data, len + 1);         //-and copy the characters
+//		}
+//	}
+//};
+
+//使用拷贝构造函数:
+
+//std::string a = "data";
+
+//a:
+//+---------+
+//| len:  4 |
+//| data:   |----->d a t a \0
+//+---------+
+
+//std::string b = a; //调用拷贝构造函数
+
+//a:
+//+---------+
+//| len:  4 |
+//| data:   |----->d a t a \0
+//+---------+
+
+//b:
+//+---------+
+//| len:  4 |
+//| data:   |----->d a t a \0
+//+---------+
+
+//std::string的拷贝构造函数提供了data的深拷贝实现
+
+//2.
+//push_back(T&&)是新的移动语义，他会调用std::string类的移动构造函数，该函数使用不再需要的string对象(会修改他)创建一个新的string对象
+
+//(简化实现)
+//class string
+//{
+//private:
+//	int len;                               //current number of characters
+//	char* data;                            //dynamic array of characters
+//
+//public:
+//	//...
+//
+//	//move constructor:initialize the new string from s(stealing the value):
+//	string(string&& s)
+//		:len{ s.len }, data{ s.data }      //copy number of characters and pointer to memory
+//	{
+//		s.data = nullptr;                  //release the memory for the source value
+//		s.len = 0;                         //and adjust number of characters accordingly
+//	}
+//
+//  //...
+//};
+
+//std::string c = std::move(b);   //调用移动构造函数 init c with the value of b(no longer needing its value here)
+
+//b:
+//+---------+
+//| len:  4 |
+//| data:   |   -->d a t a \0
+//+---------+   |
+//              |
+//c:            |
+//+---------+   |
+//| len:  4 |   |
+//| data:   |---+
+//+---------+
+
+//std::string的移动构造函数提供了data的浅拷贝实现，然后修改源data(如果不修改的话，b的析构函数会释放内存)，从而实现所有权的转移
+
+
+
+
+
+
+//从上面可以看出，提供push_back(T&& elem)函数后，使用临时对象或者std::move()可以调用他，从而使用了移动语义。如果没有提供这个函数，那么使用临时对象或者std::move()时，使用的是拷贝语义
+//比如，假设一个类似vector的容器没有push_back(T&& elem)版本的重载：
+//template<typename T>
+//class MyVector
+//{
+//public:
+//	//...
+//	void push_back(const T& elem);       //insert a copy of elem
+//	//...                                //no other push_back() declared
+//};
+
+//MyVector<std::string> coll;
+//std::string s{"data"};
+//...
+//coll.push_back(std::move(s));//仍然可以使用临时对象或者std::move()，使用的是拷贝语义
+
+//这样的好处：
+//a.在移动语义支持之前或者不支持移动语义的函数或类实现在以临时对象或者std::move()方式使用时，仍能正常工作
+//b.没有需要优化的
+
+//对于泛型代码，我们总能使用std::move标记不再使用的对象，即使该对象类型不支持移动语义
+//同样，甚至可以标记基本数据类型的对象，例如int，仍会使用通常的值语义拷贝，例如：
+
+//std::vector<int> coll;
+//int x{42};
+//...
+//coll.push_back(std::move(x));   //Ok,but copies x (std::move() has no effect)
+
+
+
+//注意，以const声明的对象无法移动，因为任意优化实现都需要修改被传递的参数，以const声明的对象只适合push_back(const T& elem)，也就是说对以const声明的对象使用std::move仍只是调用push_back(const T& elem)，即std::move没有效果
+
+//std::vector<std::string> coll;
+//const std::string s{"data"};
+//...
+//coll.push_back(std::move(s));    //OK,calls push_back(const std::string&)  (std::move() has no effect)
+
+//原则上，我们可以通过声明一个形参为常量右值引用的重载函数push_back(const T&& elem)，但是这在语义上毫无意义。这里再次说明了无法使用移动语义时会使用拷贝语义
+
+
+
+
+
+//(重点!!!)
+
+//之前讨论了，以const声明的对象，被禁用了移动语义，这同样适用于以const声明的返回值
+//因此，从C++11开始，以const的按值返回的不再是好的编码风格(以前曾作为一个风格指南被推荐过)，例如
+
+//(错误示范)
+//const std::string getValue();
+
+//std::vector<std::string> coll;
+//...
+//coll.push_back(getValue());      //copies(because the return value is const)
+
+//以const声明返回值时，只适用于返回的指针类型或引用类型的部分，例如
+
+//const std::string& getRef();
+//const std::string* getPtr();
+
 BOOST_AUTO_TEST_SUITE_END()
